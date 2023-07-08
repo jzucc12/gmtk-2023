@@ -8,8 +8,9 @@ public class GameFile : MonoBehaviour
     [SerializeField] private ActionType myType;
     [SerializeField] private string fileName;
     [SerializeField] private TextMeshProUGUI fileText;
-    [SerializeField] private int hpRestore;
-    [SerializeField] private int mpRestore;
+    public int damageToEnemy;
+    public int hpRestore;
+    public int mpRestore;
     public static event Action<GameFile> FileSelected;
     private Button button;
 
@@ -41,6 +42,10 @@ public class GameFile : MonoBehaviour
     public string UseText()
     {
         string output = $"Selected file {fileName}.";
+        if(damageToEnemy > 0)
+        {
+            output += $" Dealt {damageToEnemy} damage to your foe.";
+        }
         if(hpRestore > 0)
         {
             output += $" Restored {hpRestore} HP.";

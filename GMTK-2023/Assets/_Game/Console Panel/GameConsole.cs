@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class GameConsole : MonoBehaviour
@@ -14,8 +13,9 @@ public class GameConsole : MonoBehaviour
     private ActionStruct currentAction => actions[actionIndex];
     public event Action<int> NewBug;
     public event Action<ActionStruct> NewAction;
-    public event Action<string> ActionSelected;
+    public event Action<ActionStruct, GameFile> ActionSelected;
     public event Action<float> TimerTicked;
+    public event Action GameCrash;
 
 
     private void Start()
@@ -46,21 +46,11 @@ public class GameConsole : MonoBehaviour
 
         if(currentBugs >= maxBugs)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            
         }
 
         //Perform action
-        Debug.Log($"Enemy attacks for {currentAction.enemyDamage}");
-        string selectionText = "";
-        if(file == null)
-        {
-            selectionText = "No action selected. Turn Skipped.";
-        }
-        else
-        {
-            selectionText = file.UseText();
-        }
-        ActionSelected?.Invoke(selectionText);
+        ActionSelected?.Invoke(currentAction, file);
 
         //Increment Action
         actionIndex++;

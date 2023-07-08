@@ -28,8 +28,17 @@ public class ActionUI : MonoBehaviour
         selectedText.text = "";
     }
 
-    private void FileSubmitted(string fileText)
+    private void FileSubmitted(ActionStruct action, GameFile file)
     {
-        selectedText.text = fileText;
+        string selectionText = "";
+        if(file == null)
+        {
+            selectionText = "No action selected. Turn Skipped.";
+        }
+        else
+        {
+            selectionText = file.UseText();
+        }
+        selectedText.text = selectionText;
     }
 }
