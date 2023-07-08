@@ -152,6 +152,8 @@ public struct CombatStruct
 {
     public int enemyHP;
     public Transform enemyLocation;
+    public float levelTimer;
+    public string enemyName;
 }
 
 //TODO
@@ -160,7 +162,10 @@ public struct CombatStruct
 //Can't use attacks if not enough MP/weapon equipped
     //What does that mean?
 //Different folders per fight
+//Different timers per fight
 //Attack animations
 //Idle animations
 //Put enemies in
 //Enemy names
+
+//Try map as sprite instead of image
