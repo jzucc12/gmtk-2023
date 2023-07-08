@@ -34,11 +34,16 @@ public class GameConsole : MonoBehaviour
         SubmitButton.Submitted -= ActionChosen;
     }
 
+    public void ResetStuff()
+    {
+        currentBugs = 0;
+        NewBug?.Invoke(currentBugs);
+        TimerTicked?.Invoke(0);
+    }
+
     public void StartFight(int combatIndex)
     {
         stop = false;
-        currentBugs = 0;
-        NewBug?.Invoke(currentBugs);
         this.combatIndex = combatIndex - 1;
         actionIndex = 0;
         SetUpAction();

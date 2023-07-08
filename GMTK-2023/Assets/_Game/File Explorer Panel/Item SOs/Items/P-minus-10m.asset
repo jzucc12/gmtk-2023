@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c7309f4c7b934e40907f1117aba192a, type: 3}
-  m_Name: HPotionV2_Test_Final_End
+  m_Name: P-minus-10m
   m_EditorClassIdentifier: 
   myType: 3
-  damageToEnemy: 5
-  hpRestore: 3
-  mpRestore: 1
+  damageToEnemy: 0
+  hpRestore: 0
+  mpRestore: -10

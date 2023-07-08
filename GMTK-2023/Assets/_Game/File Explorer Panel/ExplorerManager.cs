@@ -11,6 +11,7 @@ public class ExplorerManager : MonoBehaviour
     private void Start()
     {
         Block(null);
+        NewFolders(0);
     }
 
     private void OnEnable()

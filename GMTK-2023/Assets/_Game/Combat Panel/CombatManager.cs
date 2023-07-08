@@ -165,7 +165,13 @@ public struct CombatStruct
 //Attack animations
 //Idle animations
 //Put enemies in
+//Music and sfx
+//Update font
 
 //Try map as sprite instead of image
 //Try green tint on console log
 //Add border to top box
+
+//Main menu
+//Pause with audio settings
+//Credits
