@@ -8,19 +8,14 @@ public class GameFolder : MonoBehaviour
     [SerializeField] private string folderName;
     [SerializeField] private TextMeshProUGUI fileText;
     [SerializeField] private RectTransform filesObject;
+    [SerializeField] private Button button;
     private bool opened = false;
-    private Button button;
     public static event Action ChangeFolder;
 
 
     private void OnValidate()
     {
         fileText.text = folderName;
-    }
-
-    private void Awake()
-    {
-        button = GetComponent<Button>();
     }
 
     private void OnEnable()

@@ -7,21 +7,19 @@ public class GameConsole : MonoBehaviour
 {
     [SerializeField] private int maxBugs;
     [SerializeField] private float turnTime;
-    [SerializeField] private List<ActionStruct> actions = new List<ActionStruct>();
+    [SerializeField] private List<ActionQueue> actions = new List<ActionQueue>();
     private int currentBugs = 0;
+    private int combatIndex = 0;
     private int actionIndex = 0;
-    private ActionStruct currentAction => actions[actionIndex];
+    private ActionQueue currentQueue => actions[combatIndex];
+    private ActionStruct currentAction => currentQueue.GetAction(actionIndex);
     public event Action<int> NewBug;
     public event Action<ActionStruct> NewAction;
     public event Action<ActionStruct, GameFile> ActionSelected;
     public event Action<float> TimerTicked;
     public event Action GameCrash;
+    public bool stop = false;
 
-
-    private void Start()
-    {
-        SetUpAction();
-    }
 
     private void OnEnable()
     {
@@ -31,6 +29,16 @@ public class GameConsole : MonoBehaviour
     private void OnDisable()
     {
         SubmitButton.Submitted -= ActionChosen;
+    }
+
+    public void StartFight(int combatIndex)
+    {
+        stop = false;
+        currentBugs = 0;
+        NewBug?.Invoke(currentBugs);
+        this.combatIndex = combatIndex - 1;
+        actionIndex = 0;
+        SetUpAction();
     }
 
     private void ActionChosen(GameFile file)
@@ -46,15 +54,16 @@ public class GameConsole : MonoBehaviour
 
         if(currentBugs >= maxBugs)
         {
-            
+            GameCrash?.Invoke();
+            return;
         }
 
         //Perform action
         ActionSelected?.Invoke(currentAction, file);
 
-        //Increment Action
+        //Increment action
         actionIndex++;
-        if(actionIndex >= actions.Count)
+        if(actionIndex >= currentQueue.actions.Count)
         {
             actionIndex = 0;
         }
@@ -63,8 +72,11 @@ public class GameConsole : MonoBehaviour
 
     private IEnumerator WaitForNextTurn()
     {
-        yield return new WaitForSeconds(2);
-        SetUpAction();
+        if(!stop)
+        {
+            yield return new WaitForSeconds(2);
+            SetUpAction();
+        }
     }
 
     private void SetUpAction()
@@ -83,5 +95,16 @@ public class GameConsole : MonoBehaviour
             currentTime += Time.deltaTime;
         }
         ActionChosen(null);
+    }
+}
+
+[Serializable]
+public struct ActionQueue
+{
+    public List<ActionStruct> actions;
+
+    public ActionStruct GetAction(int index)
+    {
+        return actions[index];
     }
 }

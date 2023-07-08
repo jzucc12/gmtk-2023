@@ -8,21 +8,16 @@ public class GameFile : MonoBehaviour
     [SerializeField] private ActionType myType;
     [SerializeField] private string fileName;
     [SerializeField] private TextMeshProUGUI fileText;
+    [SerializeField] private Button button;
     public int damageToEnemy;
     public int hpRestore;
     public int mpRestore;
     public static event Action<GameFile> FileSelected;
-    private Button button;
 
 
     private void OnValidate()
     {
         fileText.text = fileName;
-    }
-
-    private void Awake()
-    {
-        button = GetComponent<Button>();
     }
 
     private void OnEnable()
