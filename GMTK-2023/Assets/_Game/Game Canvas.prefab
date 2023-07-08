@@ -123,7 +123,6 @@ MonoBehaviour:
   victoryScreen: {fileID: 6706050061819175681}
   defeatScreen: {fileID: 6706050060913720660}
   gameCrashScreen: {fileID: 6706050061325601830}
-  maxCombats: 2
 --- !u!1001 &1170233509669653121
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -408,10 +407,6 @@ PrefabInstance:
     - target: {fileID: 8454404615921470192, guid: 33755671adff10f4e99ba4eebf8187c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8454404615921470195, guid: 33755671adff10f4e99ba4eebf8187c4, type: 3}
-      propertyPath: actions.Array.size
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8454404615921470195, guid: 33755671adff10f4e99ba4eebf8187c4, type: 3}
       propertyPath: explorerBlockCanvas

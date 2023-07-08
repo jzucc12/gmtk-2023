@@ -446,7 +446,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxBugs: 3
   turnTime: 10
-  actions: []
+  actions:
+  - actions:
+    - enemyAttackName: Thunder
+      enemyDamage: 10
+      playerAction: 0
+    - enemyAttackName: Slash
+      enemyDamage: 20
+      playerAction: 1
+  - actions:
+    - enemyAttackName: Kick
+      enemyDamage: 10
+      playerAction: 2
+  - actions:
+    - enemyAttackName: Kick
+      enemyDamage: 10
+      playerAction: 2
   stop: 0
 --- !u!1 &8454404616000316089
 GameObject:

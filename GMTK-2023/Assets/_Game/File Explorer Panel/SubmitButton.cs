@@ -40,10 +40,6 @@ public class SubmitButton : MonoBehaviour
 
     public void FolderChanged(GameFolder folder)
     {
-        // if(selectedFile == null)
-        // {
-        //     return;
-        // }
         if(folder != activeFolder)
         {
             activeFolder = folder;

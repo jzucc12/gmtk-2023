@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+using UnityEngine.UI;
 
 public class CombatManager : MonoBehaviour
 {
@@ -22,8 +24,12 @@ public class CombatManager : MonoBehaviour
 
     [Header("Combat UI")]
     [SerializeField] private Animator playerAnimator;
+    [SerializeField] private Transform dungeonDoor;
+    [SerializeField] private Transform teleportDestination;
+    [SerializeField] private Image blockOutScreen;
     [SerializeField] private RectTransform background;
-    [SerializeField] private float scrollSpeed = 5;
+    [SerializeField] private float scrollSpeed = 1;
+    [SerializeField] private float fadeTime = 1;
     public event Action ScrollFinished;
     private float offset;
 
@@ -86,23 +92,57 @@ public class CombatManager : MonoBehaviour
 
     private IEnumerator ScrollRoutine()
     {
+        if(combatIndex == 2)
+        {
+            yield return EnterDungeon();
+        }
+        float buffer = 100;
+        yield return ScrollToPoint(currentCombat.enemyLocation.localPosition.x, buffer);
+        ScrollFinished?.Invoke();
+        playerAnimator.SetBool("walking", false);
+    }
+
+    private IEnumerator EnterDungeon()
+    {
+        float xShift = playerAnimator.transform.localPosition.x + 41; //Empirical
+        yield return ScrollToPoint(dungeonDoor.localPosition.x, background.parent.GetComponent<RectTransform>().rect.width-xShift);
+        playerAnimator.SetBool("walking", false);
+
+        //Play door sfx
+        blockOutScreen.DOFade(1, fadeTime);
+        yield return new WaitForSeconds(fadeTime);
+
+        float moveTo = teleportDestination.localPosition.x;
+        float yShift = 44; //Empirical
+        playerAnimator.transform.localPosition += new Vector3(0, -yShift, 0);
+        background.anchoredPosition = new Vector2(-moveTo, background.anchoredPosition.y);
+
+        blockOutScreen.DOFade(0, fadeTime);
+        yield return new WaitForSeconds(fadeTime);
+        playerAnimator.SetBool("walking", true);
+    }
+
+    private IEnumerator ScrollToPoint(float destination, float buffer)
+    {
         float start = background.anchoredPosition.x;
         float moved = -start;
-        float buffer = 100;
-        float target = currentCombat.enemyLocation.localPosition.x - background.parent.GetComponent<RectTransform>().rect.width + buffer;
+        float target = destination - background.parent.GetComponent<RectTransform>().rect.width + buffer;
         while(moved != target)
         {
             moved = Mathf.MoveTowards(moved, target, scrollSpeed);
-            background.anchoredPosition = new Vector2(-moved, background.localPosition.y);
+            background.anchoredPosition = new Vector2(-moved, background.anchoredPosition.y);
             yield return null;
         }
-        ScrollFinished?.Invoke();
-        playerAnimator.SetBool("walking", false);
     }
 
     public void Victory()
     {
         currentCombat.enemyLocation.gameObject.SetActive(false);
+    }
+
+    public int CombatCount()
+    {
+        return combats.Count;
     }
     #endregion
 }
@@ -113,3 +153,14 @@ public struct CombatStruct
     public int enemyHP;
     public Transform enemyLocation;
 }
+
+//TODO
+//Lower max bugs to gain hp option
+//Pausing between action prompts
+//Can't use attacks if not enough MP/weapon equipped
+    //What does that mean?
+//Different folders per fight
+//Attack animations
+//Idle animations
+//Put enemies in
+//Enemy names

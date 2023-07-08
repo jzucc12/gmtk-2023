@@ -9,7 +9,6 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject victoryScreen;
     [SerializeField] private GameObject defeatScreen;
     [SerializeField] private GameObject gameCrashScreen;
-    [SerializeField] private int maxCombats;
     private int combatIndex = 1;
 
 
@@ -54,7 +53,7 @@ public class LevelManager : MonoBehaviour
         combat.Victory();
         console.stop = true;
         combatIndex++;
-        if(combatIndex > maxCombats)
+        if(combatIndex > combat.CombatCount())
         {
             victoryScreen.SetActive(true);
         }

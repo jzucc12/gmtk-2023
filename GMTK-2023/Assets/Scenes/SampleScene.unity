@@ -860,45 +860,9 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6666300065748496294, guid: e45a69940af051c42a96d7fef043fa3c, type: 3}
-      propertyPath: actions.Array.data[0].actions.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6666300065748496294, guid: e45a69940af051c42a96d7fef043fa3c, type: 3}
-      propertyPath: actions.Array.data[1].actions.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6666300065748496294, guid: e45a69940af051c42a96d7fef043fa3c, type: 3}
-      propertyPath: actions.Array.data[0].actions.Array.data[0].enemyDamage
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6666300065748496294, guid: e45a69940af051c42a96d7fef043fa3c, type: 3}
-      propertyPath: actions.Array.data[0].actions.Array.data[1].enemyDamage
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6666300065748496294, guid: e45a69940af051c42a96d7fef043fa3c, type: 3}
-      propertyPath: actions.Array.data[1].actions.Array.data[0].enemyDamage
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6666300065748496294, guid: e45a69940af051c42a96d7fef043fa3c, type: 3}
-      propertyPath: actions.Array.data[0].actions.Array.data[1].playerAction
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6666300065748496294, guid: e45a69940af051c42a96d7fef043fa3c, type: 3}
-      propertyPath: actions.Array.data[1].actions.Array.data[0].playerAction
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6666300065748496294, guid: e45a69940af051c42a96d7fef043fa3c, type: 3}
-      propertyPath: actions.Array.data[0].actions.Array.data[0].enemyAttackName
-      value: Thunder
-      objectReference: {fileID: 0}
-    - target: {fileID: 6666300065748496294, guid: e45a69940af051c42a96d7fef043fa3c, type: 3}
-      propertyPath: actions.Array.data[0].actions.Array.data[1].enemyAttackName
-      value: Slash
-      objectReference: {fileID: 0}
-    - target: {fileID: 6666300065748496294, guid: e45a69940af051c42a96d7fef043fa3c, type: 3}
-      propertyPath: actions.Array.data[1].actions.Array.data[0].enemyAttackName
-      value: Kick
+    - target: {fileID: 6666300065409402466, guid: e45a69940af051c42a96d7fef043fa3c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0014648438
       objectReference: {fileID: 0}
     - target: {fileID: 6666300066720143080, guid: e45a69940af051c42a96d7fef043fa3c, type: 3}
       propertyPath: enemyHPs.Array.size
