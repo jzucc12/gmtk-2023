@@ -602,11 +602,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6666300066720143080, guid: e45a69940af051c42a96d7fef043fa3c, type: 3}
       propertyPath: enemyHPs.Array.data[1]
-      value: 150
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 6666300066773307747, guid: e45a69940af051c42a96d7fef043fa3c, type: 3}
       propertyPath: m_Name
       value: Game Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666300066773307756, guid: e45a69940af051c42a96d7fef043fa3c, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 6666300066773307756, guid: e45a69940af051c42a96d7fef043fa3c, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6666300066773307756, guid: e45a69940af051c42a96d7fef043fa3c, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag

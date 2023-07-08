@@ -51,6 +51,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Victory Screen
       objectReference: {fileID: 0}
+    - target: {fileID: 113673658831767392, guid: d069a774962c81e43ab026f4239330d1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1970283669806839595, guid: d069a774962c81e43ab026f4239330d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -81,9 +85,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2391396246667794032, guid: d069a774962c81e43ab026f4239330d1, type: 3}
       propertyPath: m_text
-      value: 'All the monster defeated!
+      value: 'You defeated all the monsters
 
-        You saved the day!'
+        and saved the day!'
       objectReference: {fileID: 0}
     - target: {fileID: 2506732923796845988, guid: d069a774962c81e43ab026f4239330d1, type: 3}
       propertyPath: m_Pivot.x
@@ -112,10 +116,6 @@ PrefabInstance:
     - target: {fileID: 2506732923796845988, guid: d069a774962c81e43ab026f4239330d1, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2506732923796845988, guid: d069a774962c81e43ab026f4239330d1, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 2506732923796845988, guid: d069a774962c81e43ab026f4239330d1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -178,6 +178,10 @@ PrefabInstance:
     - target: {fileID: 113673658831767392, guid: d069a774962c81e43ab026f4239330d1, type: 3}
       propertyPath: m_Name
       value: Game Crash Screen
+      objectReference: {fileID: 0}
+    - target: {fileID: 113673658831767392, guid: d069a774962c81e43ab026f4239330d1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1970283669806839595, guid: d069a774962c81e43ab026f4239330d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -307,6 +311,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lose Screen
       objectReference: {fileID: 0}
+    - target: {fileID: 113673658831767392, guid: d069a774962c81e43ab026f4239330d1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1970283669806839595, guid: d069a774962c81e43ab026f4239330d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -435,6 +443,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Win Fight Screen
       objectReference: {fileID: 0}
+    - target: {fileID: 113673658831767392, guid: d069a774962c81e43ab026f4239330d1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1970283669806839595, guid: d069a774962c81e43ab026f4239330d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -494,6 +506,10 @@ PrefabInstance:
     - target: {fileID: 2506732923796845988, guid: d069a774962c81e43ab026f4239330d1, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506732923796845988, guid: d069a774962c81e43ab026f4239330d1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 2506732923796845988, guid: d069a774962c81e43ab026f4239330d1, type: 3}
       propertyPath: m_LocalPosition.x

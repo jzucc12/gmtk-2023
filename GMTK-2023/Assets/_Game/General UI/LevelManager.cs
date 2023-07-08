@@ -15,7 +15,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        StartFight();
+        GoToNextFight();
     }
 
     private void OnEnable()
@@ -23,6 +23,7 @@ public class LevelManager : MonoBehaviour
         console.GameCrash += GameCrash;
         combat.PlayerLose += GameOver;
         combat.PlayerWin += WinFight;
+        combat.ScrollFinished += StartFight;
     }
 
     private void OnDisable()
@@ -30,20 +31,27 @@ public class LevelManager : MonoBehaviour
         console.GameCrash -= GameCrash;
         combat.PlayerLose -= GameOver;
         combat.PlayerWin -= WinFight;
+        combat.ScrollFinished -= StartFight;
     }
 
-    public void StartFight()
+    public void GoToNextFight()
     {
-        console.StartFight(combatIndex);
-        combat.SetUp(combatIndex);
+        combat.Scroll(combatIndex);
         winFightScreen.SetActive(false);
         victoryScreen.SetActive(false);
         defeatScreen.SetActive(false);
         gameCrashScreen.SetActive(false);
     }
 
+    private void StartFight()
+    {
+        console.StartFight(combatIndex);
+        combat.SetUp();
+    }
+
     private void WinFight()
     {
+        combat.Victory();
         console.stop = true;
         combatIndex++;
         if(combatIndex > maxCombats)

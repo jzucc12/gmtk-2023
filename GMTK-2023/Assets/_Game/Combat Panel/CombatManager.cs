@@ -1,35 +1,36 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CombatManager : MonoBehaviour
 {
+    [Header("Combat mechanics")]
     [SerializeField] private GameConsole console;
     public int maxPlayerHP;
     public int maxPlayerMP;
-    [SerializeField] private List<int> enemyHPs;
-    public int maxEnemyHP => enemyHPs[combatIndex];
+    [SerializeField] private List<CombatStruct> combats;
+    private CombatStruct currentCombat => combats[combatIndex];
+    public int maxEnemyHP => currentCombat.enemyHP;
     [HideInInspector] public int currentPlayerHP;
     [HideInInspector] public int currentPlayerMP;
     [HideInInspector] public int currentEnemyHP;
-    private int combatIndex;
+    private int combatIndex = 0;
     public event Action TurnTaken;
     public event Action PlayerLose;
     public event Action PlayerWin;
 
+    [Header("Combat UI")]
+    [SerializeField] private Animator playerAnimator;
+    [SerializeField] private RectTransform background;
+    [SerializeField] private float scrollSpeed = 5;
+    public event Action ScrollFinished;
 
+
+    #region //Monobehaviour
     private void Awake()
     {
-        SetUp(1);
-    }
-
-    public void SetUp(int combatIndex)
-    {
-        this.combatIndex = combatIndex - 1;
-        currentPlayerHP = maxPlayerHP;
-        currentPlayerMP = maxPlayerMP;
-        currentEnemyHP = maxEnemyHP;
-        TurnTaken?.Invoke();
+        SetUp();
     }
 
     private void OnEnable()
@@ -40,6 +41,16 @@ public class CombatManager : MonoBehaviour
     private void OnDisable()
     {
         console.ActionSelected -= DoAction;
+    }
+    #endregion
+
+    #region //Fight
+    public void SetUp()
+    {
+        currentPlayerHP = maxPlayerHP;
+        currentPlayerMP = maxPlayerMP;
+        currentEnemyHP = maxEnemyHP;
+        TurnTaken?.Invoke();
     }
 
     private void DoAction(ActionStruct action, GameFile file)
@@ -61,6 +72,43 @@ public class CombatManager : MonoBehaviour
         {
             PlayerWin?.Invoke();
         }
-
     }
+    #endregion
+
+    #region //UI
+    public void Scroll(int combatIndex)
+    {
+        this.combatIndex = combatIndex - 1;
+        StartCoroutine(ScrollRoutine());
+        playerAnimator.SetBool("walking", true);
+    }
+
+    private IEnumerator ScrollRoutine()
+    {
+        float start = background.localPosition.x;
+        float moved = -start;
+        float buffer = 100;
+        float target = currentCombat.enemyLocation.localPosition.x - GetComponent<RectTransform>().rect.width + buffer;
+        while(moved != target)
+        {
+            moved = Mathf.MoveTowards(moved, target, scrollSpeed);
+            background.localPosition = new Vector2(-moved, background.localPosition.y);
+            yield return null;
+        }
+        ScrollFinished?.Invoke();
+        playerAnimator.SetBool("walking", false);
+    }
+
+    public void Victory()
+    {
+        currentCombat.enemyLocation.gameObject.SetActive(false);
+    }
+    #endregion
+}
+
+[Serializable]
+public struct CombatStruct
+{
+    public int enemyHP;
+    public Transform enemyLocation;
 }
