@@ -16,13 +16,13 @@ public class ExplorerManager : MonoBehaviour
     private void OnEnable()
     {
         SubmitButton.Submitted += Block;
-        console.NewAction += Unblock;
+        console.NewActionLate += Unblock;
     }
 
     private void OnDisable()
     {
         SubmitButton.Submitted -= Block;
-        console.NewAction -= Unblock;
+        console.NewActionLate -= Unblock;
     }
 
     public void NewFolders(int newIndex)
@@ -39,7 +39,7 @@ public class ExplorerManager : MonoBehaviour
         files.UpdateFolder(null);
     }
 
-    private void Unblock(ActionStruct _)
+    private void Unblock()
     {
         explorerBlockCanvas.SetActive(false);
     }

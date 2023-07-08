@@ -160,11 +160,12 @@ public struct CombatStruct
 
 //TODO
 //Lower max bugs to gain hp option
-//Pausing between action prompts
-//Can't use attacks if not enough MP/weapon equipped
+//Can't use attacks if not enough MP/wrong weapon equipped
+//Weapon equipped UI
 //Attack animations
 //Idle animations
 //Put enemies in
 
 //Try map as sprite instead of image
 //Try green tint on console log
+//Add border to top box

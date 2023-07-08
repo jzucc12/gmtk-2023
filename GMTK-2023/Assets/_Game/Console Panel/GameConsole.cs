@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameConsole : MonoBehaviour
 {
+    [SerializeField] private Button continueButton;
     [SerializeField] private int maxBugs;
     public float turnTime;
     [SerializeField] private List<ActionQueue> actions = new List<ActionQueue>();
@@ -15,6 +17,7 @@ public class GameConsole : MonoBehaviour
     private ActionStruct currentAction => currentQueue.GetAction(actionIndex);
     public event Action<int> NewBug;
     public event Action<ActionStruct> NewAction;
+    public event Action NewActionLate;
     public event Action<ActionStruct, GameFile> ActionSelected;
     public event Action<float> TimerTicked;
     public event Action GameCrash;
@@ -67,21 +70,29 @@ public class GameConsole : MonoBehaviour
         {
             actionIndex = 0;
         }
-        StartCoroutine(WaitForNextTurn());
-    }
-
-    private IEnumerator WaitForNextTurn()
-    {
         if(!stop)
         {
-            yield return new WaitForSeconds(2);
-            SetUpAction();
+            SetUpContinueButton(SetUpAction);
         }
+    }
+
+    private void SetUpContinueButton(UnityEngine.Events.UnityAction action)
+    {
+        continueButton.interactable = true;
+        continueButton.onClick.RemoveAllListeners();
+        continueButton.onClick.AddListener(() => continueButton.interactable = false);
+        continueButton.onClick.AddListener(action);
     }
 
     private void SetUpAction()
     {
         NewAction?.Invoke(currentAction);
+        SetUpContinueButton(StartTurn);
+    }
+
+    private void StartTurn()
+    {
+        NewActionLate?.Invoke();
         StartCoroutine(TurnTimer());
     }
 
