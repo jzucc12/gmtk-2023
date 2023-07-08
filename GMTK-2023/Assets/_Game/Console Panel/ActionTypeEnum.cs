@@ -1,6 +1,7 @@
 public enum ActionType
 {
-    Attack,
-    Magic,
+    LightAttack,
+    HeavyAttack,
     Equipment,
+    Item
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,10 +8,10 @@ public class GameFolder : MonoBehaviour
 {
     [SerializeField] private string folderName;
     [SerializeField] private TextMeshProUGUI fileText;
-    [SerializeField] private RectTransform filesObject;
     [SerializeField] private Button button;
+    [SerializeField] private List<FileSO> files;
     private bool opened = false;
-    public static event Action ChangeFolder;
+    public static event Action<GameFolder> ChangeFolder;
 
 
     private void OnValidate()
@@ -21,7 +22,6 @@ public class GameFolder : MonoBehaviour
     private void OnEnable()
     {
         button.onClick.AddListener(OnClick);
-        Open(false);
     }
 
     private void OnDisable()
@@ -29,20 +29,18 @@ public class GameFolder : MonoBehaviour
         button.onClick.RemoveListener(OnClick);
     }
     
-    private void Start()
-    {
-        Open(false);
-    }
-    
     private void OnClick()
     {
-        Open(!opened);
-        ChangeFolder?.Invoke();
+        ChangeFolder?.Invoke(this);
     }
 
-    private void Open(bool nowOpen)
+    public string GetName()
     {
-        opened = nowOpen;
-        filesObject.gameObject.SetActive(nowOpen);
+        return folderName;
+    }
+
+    public List<FileSO> GetFiles()
+    {
+        return files;
     }
 }

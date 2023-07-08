@@ -11,6 +11,7 @@ public class SubmitButton : MonoBehaviour
     private string selectedPrefix = "Use:";
     private GameFile selectedFile = null;
     public static event Action<GameFile> Submitted;
+    private GameFolder activeFolder;
 
 
     private void Start()
@@ -37,14 +38,15 @@ public class SubmitButton : MonoBehaviour
         NewFile(null);
     }
 
-    private void FolderChanged()
+    private void FolderChanged(GameFolder folder)
     {
-        if(selectedFile == null)
+        // if(selectedFile == null)
+        // {
+        //     return;
+        // }
+        if(folder != activeFolder)
         {
-            return;
-        }
-        if(!selectedFile.gameObject.activeInHierarchy)
-        {
+            activeFolder = folder;
             NewFile(null);
         }
     }

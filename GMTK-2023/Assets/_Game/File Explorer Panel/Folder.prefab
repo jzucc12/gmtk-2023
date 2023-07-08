@@ -91,7 +91,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 213727019827364929, guid: 8af37d924bfb82843995108917879677, type: 3}
       propertyPath: m_fontSize
-      value: 37.55
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1634750503055007419, guid: 8af37d924bfb82843995108917879677, type: 3}
       propertyPath: m_TargetGraphic
@@ -234,8 +234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   folderName: Oh No
   fileText: {fileID: 6431800024428850811}
-  filesObject: {fileID: 1732207268}
   button: {fileID: 5555994397870699649}
+  files: []
 --- !u!114 &5555994397870699649 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1634750503055007419, guid: 8af37d924bfb82843995108917879677, type: 3}
