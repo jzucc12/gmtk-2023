@@ -25,6 +25,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private RectTransform background;
     [SerializeField] private float scrollSpeed = 5;
     public event Action ScrollFinished;
+    private float offset;
 
 
     #region //Monobehaviour
@@ -85,14 +86,14 @@ public class CombatManager : MonoBehaviour
 
     private IEnumerator ScrollRoutine()
     {
-        float start = background.localPosition.x;
+        float start = background.anchoredPosition.x;
         float moved = -start;
         float buffer = 100;
-        float target = currentCombat.enemyLocation.localPosition.x - GetComponent<RectTransform>().rect.width + buffer;
+        float target = currentCombat.enemyLocation.localPosition.x - background.parent.GetComponent<RectTransform>().rect.width + buffer;
         while(moved != target)
         {
             moved = Mathf.MoveTowards(moved, target, scrollSpeed);
-            background.localPosition = new Vector2(-moved, background.localPosition.y);
+            background.anchoredPosition = new Vector2(-moved, background.localPosition.y);
             yield return null;
         }
         ScrollFinished?.Invoke();
