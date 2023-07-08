@@ -6,6 +6,12 @@ public class BugUI : MonoBehaviour
     [SerializeField] private GameConsole console;
     [SerializeField] private Image[] icons;
 
+
+    private void Start()
+    {
+        UpdateBugCount(0);
+    }
+
     private void OnEnable()
     {
         console.NewBug += UpdateBugCount;

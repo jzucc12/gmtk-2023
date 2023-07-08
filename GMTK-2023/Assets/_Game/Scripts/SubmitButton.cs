@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +9,7 @@ public class SubmitButton : MonoBehaviour
     [SerializeField] private Button myButton;
     private string noSelection = "Nothing Selected";
     private string selectedPrefix = "Use:";
-    private GameFile fileSelected = null;
+    private GameFile selectedFile = null;
     public static event Action<GameFile> Submitted;
 
 
@@ -23,16 +21,37 @@ public class SubmitButton : MonoBehaviour
     private void OnEnable()
     {
         GameFile.FileSelected += NewFile;
+        GameFolder.ChangeFolder += FolderChanged;
     }
 
     private void OnDisable()
     {
         GameFile.FileSelected -= NewFile;
+        GameFolder.ChangeFolder += FolderChanged;
+    }
+
+    public void UseSelected()
+    {
+        if(selectedFile == null) return;
+        Submitted?.Invoke(selectedFile);
+        NewFile(null);
+    }
+
+    private void FolderChanged()
+    {
+        if(selectedFile == null)
+        {
+            return;
+        }
+        if(!selectedFile.gameObject.activeInHierarchy)
+        {
+            NewFile(null);
+        }
     }
 
     private void NewFile(GameFile file)
     {
-        fileSelected = file;
+        selectedFile = file;
         if(file == null)
         {
             myButton.interactable = false;
@@ -43,11 +62,5 @@ public class SubmitButton : MonoBehaviour
             myButton.interactable = true;
             selectionText.text = $"{selectedPrefix} {file.GetFileName()}";
         }
-    }
-
-    public void UseSelected()
-    {
-        if(fileSelected == null) return;
-        Submitted?.Invoke(fileSelected);
     }
 }

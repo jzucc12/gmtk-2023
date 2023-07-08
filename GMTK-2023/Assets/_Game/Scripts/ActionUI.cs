@@ -12,13 +12,13 @@ public class ActionUI : MonoBehaviour
     private void OnEnable()
     {
         console.NewAction += SetUpAction;
-        SubmitButton.Submitted += FileSubmitted;
+        console.ActionSelected += FileSubmitted;
     }
 
     private void OnDisable()
     {
         console.NewAction -= SetUpAction;
-        SubmitButton.Submitted -= FileSubmitted;
+        console.ActionSelected -= FileSubmitted;
     }
 
     private void SetUpAction(ActionStruct currentAction)
@@ -28,8 +28,8 @@ public class ActionUI : MonoBehaviour
         selectedText.text = "";
     }
 
-    private void FileSubmitted(GameFile file)
+    private void FileSubmitted(string fileText)
     {
-        selectedText.text = file.UseText();
+        selectedText.text = fileText;
     }
 }

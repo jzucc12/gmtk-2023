@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ public class GameFolder : MonoBehaviour
     [SerializeField] private RectTransform filesObject;
     private bool opened = false;
     private Button button;
+    public static event Action ChangeFolder;
 
 
     private void OnValidate()
@@ -40,6 +42,7 @@ public class GameFolder : MonoBehaviour
     private void OnClick()
     {
         Open(!opened);
+        ChangeFolder?.Invoke();
     }
 
     private void Open(bool nowOpen)
