@@ -5,6 +5,7 @@ public class FilesUI : MonoBehaviour
 {
     private GameFile[] fileButtons;
     [SerializeField] private TextMeshProUGUI filesHeader;
+    
 
     private void Awake()
     {
@@ -26,7 +27,7 @@ public class FilesUI : MonoBehaviour
         GameFolder.ChangeFolder -= UpdateFolder;
     }
 
-    private void UpdateFolder(GameFolder folder)
+    public void UpdateFolder(GameFolder folder)
     {
         foreach(GameFile file in fileButtons)
         {

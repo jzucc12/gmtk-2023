@@ -35,10 +35,10 @@ public class SubmitButton : MonoBehaviour
     {
         if(selectedFile == null) return;
         Submitted?.Invoke(selectedFile);
-        NewFile(null);
+        FolderChanged(null);
     }
 
-    private void FolderChanged(GameFolder folder)
+    public void FolderChanged(GameFolder folder)
     {
         // if(selectedFile == null)
         // {
