@@ -809,10 +809,16 @@ MonoBehaviour:
   combats:
   - enemyHP: 10
     enemyLocation: {fileID: 850526322181578284}
+    turnTime: 15
+    enemyName: Skux
   - enemyHP: 10
     enemyLocation: {fileID: 9002709021580754608}
+    turnTime: 10
+    enemyName: Sandas
   - enemyHP: 10
     enemyLocation: {fileID: 1033725458323239320}
+    turnTime: 7
+    enemyName: TBD
   currentPlayerHP: 0
   currentPlayerMP: 0
   currentEnemyHP: 0
@@ -1225,7 +1231,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -25, y: 0}
-  m_SizeDelta: {x: 350, y: 0}
+  m_SizeDelta: {x: 272.23, y: 0}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &8284895779368751826
 CanvasRenderer:
@@ -1255,7 +1261,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Enemy: 200/200'
+  m_text: 'Sandas: 200/200'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1282,14 +1288,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 4
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0

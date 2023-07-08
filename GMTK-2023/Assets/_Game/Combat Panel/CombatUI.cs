@@ -28,6 +28,6 @@ public class CombatUI : MonoBehaviour
     {
         hpPlayerDisplay.text = $"HP: {combat.currentPlayerHP}/{combat.maxPlayerHP}";
         mpPlayerDisplay.text = $"MP: {combat.currentPlayerMP}/{combat.maxPlayerMP}";
-        hpEnemyDisplay.text = $"Enemy: {combat.currentEnemyHP}/{combat.maxEnemyHP}";
+        hpEnemyDisplay.text = $"{combat.enemyName}: {combat.currentEnemyHP}/{combat.maxEnemyHP}";
     }
 }

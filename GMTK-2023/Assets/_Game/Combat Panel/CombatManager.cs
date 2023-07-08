@@ -14,6 +14,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private List<CombatStruct> combats;
     private CombatStruct currentCombat => combats[combatIndex];
     public int maxEnemyHP => currentCombat.enemyHP;
+    public string enemyName => currentCombat.enemyName;
     [HideInInspector] public int currentPlayerHP;
     [HideInInspector] public int currentPlayerMP;
     [HideInInspector] public int currentEnemyHP;
@@ -86,6 +87,7 @@ public class CombatManager : MonoBehaviour
     public void Scroll(int combatIndex)
     {
         this.combatIndex = combatIndex - 1;
+        console.turnTime = currentCombat.turnTime;
         StartCoroutine(ScrollRoutine());
         playerAnimator.SetBool("walking", true);
     }
@@ -152,7 +154,7 @@ public struct CombatStruct
 {
     public int enemyHP;
     public Transform enemyLocation;
-    public float levelTimer;
+    public float turnTime;
     public string enemyName;
 }
 
@@ -160,12 +162,9 @@ public struct CombatStruct
 //Lower max bugs to gain hp option
 //Pausing between action prompts
 //Can't use attacks if not enough MP/weapon equipped
-    //What does that mean?
-//Different folders per fight
-//Different timers per fight
 //Attack animations
 //Idle animations
 //Put enemies in
-//Enemy names
 
 //Try map as sprite instead of image
+//Try green tint on console log

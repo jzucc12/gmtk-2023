@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameConsole : MonoBehaviour
 {
     [SerializeField] private int maxBugs;
-    [SerializeField] private float turnTime;
+    public float turnTime;
     [SerializeField] private List<ActionQueue> actions = new List<ActionQueue>();
     private int currentBugs = 0;
     private int combatIndex = 0;

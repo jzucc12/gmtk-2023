@@ -5,6 +5,7 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] private GameConsole console;
     [SerializeField] private CombatManager combat;
+    [SerializeField] private ExplorerManager explorer;
     [SerializeField] private GameObject winFightScreen;
     [SerializeField] private GameObject victoryScreen;
     [SerializeField] private GameObject defeatScreen;
@@ -44,6 +45,7 @@ public class LevelManager : MonoBehaviour
 
     private void StartFight()
     {
+        explorer.NewFolders(combatIndex);
         console.StartFight(combatIndex);
         combat.SetUp();
     }
