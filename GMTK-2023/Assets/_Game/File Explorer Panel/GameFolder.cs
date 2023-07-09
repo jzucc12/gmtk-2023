@@ -10,7 +10,6 @@ public class GameFolder : MonoBehaviour
     [SerializeField] private TextMeshProUGUI fileText;
     [SerializeField] private Button button;
     [SerializeField] private List<FileSO> files;
-    private bool opened = false;
     public static event Action<GameFolder> ChangeFolder;
 
 

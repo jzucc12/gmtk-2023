@@ -193,7 +193,6 @@ public struct CombatStruct
 }
 
 //TODO
-//Tutorial
 //Attack animations
 //Idle animations
 //Put enemies in
