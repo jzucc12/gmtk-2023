@@ -13,11 +13,6 @@ public class LevelManager : MonoBehaviour
     private int combatIndex = 1;
 
 
-    private void Start()
-    {
-        GoToNextFight();
-    }
-
     private void OnEnable()
     {
         console.GameCrash += GameCrash;
@@ -45,7 +40,7 @@ public class LevelManager : MonoBehaviour
         gameCrashScreen.SetActive(false);
     }
 
-    private void StartFight()
+    public void StartFight()
     {
         explorer.NewFolders(combatIndex);
         console.StartFight(combatIndex);
