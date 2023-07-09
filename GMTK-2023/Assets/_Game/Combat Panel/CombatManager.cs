@@ -149,7 +149,7 @@ public class CombatManager : MonoBehaviour
             }
             TurnTaken?.Invoke(playerHPMid);
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.75f);
             if(currentEnemyHP <= 0)
             {
                 PlayerWin?.Invoke();
@@ -167,7 +167,7 @@ public class CombatManager : MonoBehaviour
         sfx.PlaySound(currentCombat.enemyName);
         playerAnimator.SetTrigger("Damage");
         TurnTaken?.Invoke(currentPlayerHP);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.75f);
         if(currentPlayerHP <= 0)
         {
             PlayerLose?.Invoke();
@@ -262,10 +262,3 @@ public struct CombatStruct
     public float turnTime;
     public string enemyName;
 }
-
-//TODO
-//Credits
-//Try green tint on console log
-//Button as squares
-//Slide as squared
-//Menus boxes as windows box
