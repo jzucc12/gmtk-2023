@@ -13,6 +13,11 @@ public class LevelManager : MonoBehaviour
     private int combatIndex = 1;
 
 
+    private void Start()
+    {
+        FindObjectOfType<MusicPlayer>().PlayMainSong();
+    }
+
     private void OnEnable()
     {
         console.GameCrash += GameCrash;

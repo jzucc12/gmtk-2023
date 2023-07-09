@@ -217,6 +217,7 @@ public class CombatManager : MonoBehaviour
         background.anchoredPosition = new Vector2(-moveTo, background.anchoredPosition.y);
 
         blockOutScreen.DOFade(0, fadeTime);
+        FindObjectOfType<MusicPlayer>().PlayBossSong();
         yield return new WaitForSeconds(fadeTime);
         playerAnimator.SetBool("walking", true);
     }
@@ -244,6 +245,10 @@ public class CombatManager : MonoBehaviour
 
     public void Victory()
     {
+        if(combatIndex == 2)
+        {
+            FindObjectOfType<MusicPlayer>().PlayMainSong();
+        }
         currentCombat.enemyLocation.DOScale(Vector3.zero, 0.75f);
     }
 
