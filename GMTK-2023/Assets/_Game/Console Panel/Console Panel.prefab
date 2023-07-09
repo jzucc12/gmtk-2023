@@ -975,7 +975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6980047551539946824, guid: dfa6795d63716ec4583a37495c10dc2d, type: 3}
       propertyPath: m_text
-      value: Enemy uses thunder which deals 30 damage
+      value: Enemy uses thunder <color=#FF7A7A>[will deal 30 damage]</color>
       objectReference: {fileID: 0}
     - target: {fileID: 6980047551539946830, guid: dfa6795d63716ec4583a37495c10dc2d, type: 3}
       propertyPath: m_Name
@@ -1564,7 +1564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6980047551539946824, guid: dfa6795d63716ec4583a37495c10dc2d, type: 3}
       propertyPath: m_text
-      value: Player selected [Item]
+      value: Player selected <color=#00ffffff>[Item]</color>
       objectReference: {fileID: 0}
     - target: {fileID: 6980047551539946830, guid: dfa6795d63716ec4583a37495c10dc2d, type: 3}
       propertyPath: m_Name

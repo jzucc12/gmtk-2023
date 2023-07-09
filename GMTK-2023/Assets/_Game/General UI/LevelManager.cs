@@ -31,8 +31,8 @@ public class LevelManager : MonoBehaviour
 
     public void GoToNextFight()
     {
-        combat.SetUp();
         combat.Scroll(combatIndex);
+        combat.SetUp();
         console.ResetStuff();
         winFightScreen.SetActive(false);
         victoryScreen.SetActive(false);

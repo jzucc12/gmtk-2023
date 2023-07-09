@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ExplorerManager : MonoBehaviour
@@ -10,19 +11,19 @@ public class ExplorerManager : MonoBehaviour
     
     private void Start()
     {
-        Block(null);
+        Block(new ActionStruct(), null);
         NewFolders(0);
     }
 
     private void OnEnable()
     {
-        SubmitButton.Submitted += Block;
+        console.ActionSelected += Block;
         console.NewActionLate += Unblock;
     }
 
     private void OnDisable()
     {
-        SubmitButton.Submitted -= Block;
+        console.ActionSelected -= Block;
         console.NewActionLate -= Unblock;
     }
 
@@ -34,7 +35,7 @@ public class ExplorerManager : MonoBehaviour
         }
     }
 
-    private void Block(GameFile file)
+    private void Block(ActionStruct _, GameFile file)
     {
         explorerBlockCanvas.SetActive(true);
         files.UpdateFolder(null);

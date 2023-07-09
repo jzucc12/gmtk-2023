@@ -63,7 +63,7 @@ public class ActionUI : MonoBehaviour
         }
         if(wrongActionType)
         {
-            output += "\n Wrong file type chosen. Bug added";
+            output += "\nWrong file type chosen. Bug added";
         }
         selectedText.text = output;
     }

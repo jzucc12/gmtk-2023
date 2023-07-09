@@ -65,52 +65,56 @@ public class CombatManager : MonoBehaviour
 
     private void DoAction(ActionStruct action, GameFile file)
     {
-        if(file == null)
+        if(file != null)
         {
-            return;
-        }
+            currentPlayerMP += file.mpRestore;
+            bool enoughMP = false;
+            bool correctWeapon = true;
+            bool wrongActionType = action.playerAction != file.GetActionType();
 
-        currentPlayerMP += file.mpRestore;
-        bool enoughMP = false;
-        bool correctWeapon = true;
-        bool wrongActionType = action.playerAction != file.GetActionType();
+            if(file.IsEquip())
+            {
+                myWeapon = file.GetWeapon();
+            }
+            else if(file.GetWeapon() != Weapon.None && myWeapon != file.GetWeapon())
+            {
+                correctWeapon = false;
+            }
 
-        if(file.IsEquip())
-        {
-            myWeapon = file.GetWeapon();
-        }
-        else if(file.GetWeapon() != Weapon.None && myWeapon != file.GetWeapon())
-        {
-            correctWeapon = false;
-        }
+            if(currentPlayerMP >= 0)
+            {
+                enoughMP = true;
+            }
 
-        if(currentPlayerMP >= 0)
-        {
-            enoughMP = true;
-        }
+            if(correctWeapon && enoughMP)
+            {
+                currentPlayerHP += file.hpRestore;
+                currentEnemyHP -= file.damageToEnemy;
+            }
 
-        if(correctWeapon && enoughMP)
-        {
-            currentPlayerHP += file.hpRestore;
             bool attackedForEnemy = file.hpRestore < 0 && file.damageToEnemy == 0;
-            if(!attackedForEnemy)
+            if(!correctWeapon || !enoughMP || !attackedForEnemy)
             {
                 currentPlayerHP -= action.enemyDamage;
             }
-            currentEnemyHP -= file.damageToEnemy;
+
+            currentPlayerHP = Mathf.Clamp(currentPlayerHP, 0, maxPlayerHP);
+            currentPlayerMP = Mathf.Clamp(currentPlayerMP, 0, maxPlayerMP);
+            currentEnemyHP = Mathf.Clamp(currentEnemyHP, 0, maxEnemyHP);
+            CombatText?.Invoke(file, enoughMP, correctWeapon, wrongActionType);
+        }
+        else
+        {
+            currentPlayerHP -= action.enemyDamage;
+            currentPlayerHP = Mathf.Clamp(currentPlayerHP, 0, maxPlayerHP);
         }
 
-        currentPlayerHP = Mathf.Clamp(currentPlayerHP, 0, maxPlayerHP);
-        currentPlayerMP = Mathf.Clamp(currentPlayerMP, 0, maxPlayerMP);
-        currentEnemyHP = Mathf.Clamp(currentEnemyHP, 0, maxEnemyHP);
-
         TurnTaken?.Invoke();
-        CombatText?.Invoke(file, enoughMP, correctWeapon, wrongActionType);
-        if(currentPlayerHP == 0)
+        if(currentPlayerHP <= 0)
         {
             PlayerLose?.Invoke();
         }
-        else if(currentEnemyHP == 0)
+        else if(currentEnemyHP <= 0)
         {
             PlayerWin?.Invoke();
         }
@@ -198,12 +202,10 @@ public struct CombatStruct
 //Put enemies in
 //Music and sfx
 
-//Try map as sprite instead of image
-//Try green tint on console log
-//Add border to top box
 //Timer UI
 //Update background
 
 //Main menu
 //Pause with audio settings
 //Credits
+//Try green tint on console log

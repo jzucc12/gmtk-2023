@@ -8,11 +8,11 @@ public struct ActionStruct
 
     public string PlayerActionText()
     {
-        return $"Player selected [{playerAction.ToString()}]";
+        return $"Choose a <color=#00ffffff>[{playerAction.ToString()}]</color>";
     }
 
     public string EnemyActionText()
     {
-        return $"Enemy uses {enemyAttackName} which deals {enemyDamage} damage";
+        return $"{enemyAttackName} <color=#FF7A7A>[Enemy will deal {enemyDamage} damage]</color>";
     }
 }

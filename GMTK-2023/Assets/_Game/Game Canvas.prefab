@@ -475,6 +475,18 @@ PrefabInstance:
       propertyPath: console
       value: 
       objectReference: {fileID: 6666300065748496294}
+    - target: {fileID: 8284895777669347204, guid: bcc866ef6f1677c4baf6f917b86755b9, type: 3}
+      propertyPath: combats.Array.data[0].enemyHP
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284895777669347204, guid: bcc866ef6f1677c4baf6f917b86755b9, type: 3}
+      propertyPath: combats.Array.data[1].enemyHP
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284895777669347204, guid: bcc866ef6f1677c4baf6f917b86755b9, type: 3}
+      propertyPath: combats.Array.data[2].enemyHP
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 8284895777669347205, guid: bcc866ef6f1677c4baf6f917b86755b9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
