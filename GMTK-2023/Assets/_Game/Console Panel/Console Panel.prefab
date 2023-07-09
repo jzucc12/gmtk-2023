@@ -571,6 +571,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   continueButton: {fileID: 7592841514592642897}
   maxBugs: 3
+  continueClip: {fileID: 0}
+  crashClip: {fileID: 0}
   turnTime: 10
   actions:
   - actions:
@@ -594,13 +596,13 @@ MonoBehaviour:
       enemyDamage: 30
       playerAction: 0
     - enemyAttackName: Bite
-      enemyDamage: 50
+      enemyDamage: 20
       playerAction: 2
     - enemyAttackName: Dig
       enemyDamage: 20
       playerAction: 3
     - enemyAttackName: Dig
-      enemyDamage: 30
+      enemyDamage: 15
       playerAction: 1
     - enemyAttackName: Sandstorm
       enemyDamage: 50
@@ -611,7 +613,7 @@ MonoBehaviour:
       playerAction: 0
     - enemyAttackName: B
       enemyDamage: 50
-      playerAction: 0
+      playerAction: 3
     - enemyAttackName: C
       enemyDamage: 30
       playerAction: 2
@@ -620,7 +622,7 @@ MonoBehaviour:
       playerAction: 3
     - enemyAttackName: E
       enemyDamage: 75
-      playerAction: 2
+      playerAction: 0
   stop: 0
 --- !u!1 &9153472170027380120
 GameObject:

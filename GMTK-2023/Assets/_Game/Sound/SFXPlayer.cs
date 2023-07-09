@@ -10,7 +10,7 @@ public class SFXPlayer : MonoBehaviour
 
     public void PlaySound(string sound)
     {
-        AudioClip clip = sounds.Where((data) => data.name == sound).First().sfx;
+        AudioClip clip = sounds.Where((data) => data.name == sound.ToLower()).First().sfx;
         PlaySound(clip);
     }
 
@@ -20,7 +20,6 @@ public class SFXPlayer : MonoBehaviour
         source.volume = PlayerPrefs.GetFloat(AudioPanel.sfxKey, AudioPanel.defaultVol) * 0.5f;
         source.clip = clip;
         source.Play();
-
     }
 }
 

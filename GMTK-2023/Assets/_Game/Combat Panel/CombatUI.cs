@@ -12,7 +12,7 @@ public class CombatUI : MonoBehaviour
 
     private void Start()
     {
-        UpdateUI();
+        UpdateUI(combat.currentPlayerHP);
     }
 
     private void OnEnable()
@@ -25,10 +25,10 @@ public class CombatUI : MonoBehaviour
         combat.TurnTaken -= UpdateUI;
     }
 
-    private void UpdateUI()
+    private void UpdateUI(float playerHP)
     {
         weaponDisplay.text = $"Weapon:\n{combat.myWeapon}";
-        hpPlayerDisplay.text = $"HP: {combat.currentPlayerHP}/{combat.maxPlayerHP}";
+        hpPlayerDisplay.text = $"HP: {playerHP}/{combat.maxPlayerHP}";
         mpPlayerDisplay.text = $"MP: {combat.currentPlayerMP}/{combat.maxPlayerMP}";
         hpEnemyDisplay.text = $"{combat.enemyName}: {combat.currentEnemyHP}/{combat.maxEnemyHP}";
     }

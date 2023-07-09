@@ -2120,14 +2120,6 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8454404615921470195, guid: 33755671adff10f4e99ba4eebf8187c4, type: 3}
-      propertyPath: actions.Array.data[1].actions.Array.data[1].enemyDamage
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8454404615921470195, guid: 33755671adff10f4e99ba4eebf8187c4, type: 3}
-      propertyPath: actions.Array.data[1].actions.Array.data[3].enemyDamage
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8454404615921470195, guid: 33755671adff10f4e99ba4eebf8187c4, type: 3}
       propertyPath: actions.Array.data[1].actions.Array.data[4].enemyDamage
       value: 40
       objectReference: {fileID: 0}
@@ -2184,6 +2176,14 @@ PrefabInstance:
       propertyPath: console
       value: 
       objectReference: {fileID: 6666300065748496294}
+    - target: {fileID: 8284895777669347204, guid: bcc866ef6f1677c4baf6f917b86755b9, type: 3}
+      propertyPath: combats.Array.data[1].enemyHP
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284895777669347204, guid: bcc866ef6f1677c4baf6f917b86755b9, type: 3}
+      propertyPath: combats.Array.data[2].enemyHP
+      value: 160
+      objectReference: {fileID: 0}
     - target: {fileID: 8284895777669347205, guid: bcc866ef6f1677c4baf6f917b86755b9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

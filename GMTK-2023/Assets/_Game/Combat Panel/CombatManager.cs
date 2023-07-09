@@ -20,12 +20,13 @@ public class CombatManager : MonoBehaviour
     [HideInInspector] public int currentEnemyHP;
     [HideInInspector] public Weapon myWeapon = Weapon.Sword;
     private int combatIndex = 0;
-    public event Action TurnTaken;
+    public event Action<float> TurnTaken;
     public event Action PlayerLose;
     public event Action PlayerWin;
 
     [Header("Combat UI")]
     [SerializeField] private Animator playerAnimator;
+    private Animator enemyAnimator => currentCombat.enemyLocation.GetComponent<Animator>();
     [SerializeField] private Transform dungeonDoor;
     [SerializeField] private Transform teleportDestination;
     [SerializeField] private Image blockOutScreen;
@@ -68,16 +69,17 @@ public class CombatManager : MonoBehaviour
         currentPlayerHP = maxPlayerHP;
         currentPlayerMP = maxPlayerMP;
         currentEnemyHP = maxEnemyHP;
-        TurnTaken?.Invoke();
+        TurnTaken?.Invoke(currentPlayerHP);
     }
 
     private void DoAction(ActionStruct action, GameFile file)
     {
+        float playerHPAfterTheirTurn = currentPlayerHP;
+        bool enoughMP = false;
+        bool correctWeapon = true;
         if(file != null)
         {
             currentPlayerMP += file.mpRestore;
-            bool enoughMP = false;
-            bool correctWeapon = true;
             bool wrongActionType = action.playerAction != file.GetActionType();
 
             if(file.IsEquip())
@@ -98,6 +100,7 @@ public class CombatManager : MonoBehaviour
             {
                 currentPlayerHP += file.hpRestore;
                 currentEnemyHP -= file.damageToEnemy;
+                playerHPAfterTheirTurn = currentPlayerHP;
             }
 
             bool attackedForEnemy = file.hpRestore < 0 && file.damageToEnemy == 0;
@@ -110,32 +113,69 @@ public class CombatManager : MonoBehaviour
             currentPlayerMP = Mathf.Clamp(currentPlayerMP, 0, maxPlayerMP);
             currentEnemyHP = Mathf.Clamp(currentEnemyHP, 0, maxEnemyHP);
             CombatText?.Invoke(action, file, myWeapon, enoughMP, correctWeapon, wrongActionType);
-
-            if(!enoughMP || !correctWeapon)
-            {
-                sfx.PlaySound(badChoiceClip);
-            }
-            else if(file.GetClip() != null)
-            {
-                sfx.PlaySound(file.GetClip());
-            }
         }
         else
         {
             currentPlayerHP -= action.enemyDamage;
             currentPlayerHP = Mathf.Clamp(currentPlayerHP, 0, maxPlayerHP);
         }
+        StartCoroutine(AttackRoutine(file, enoughMP, correctWeapon, playerHPAfterTheirTurn));
+    }
 
-        TurnTaken?.Invoke();
+    private IEnumerator AttackRoutine(GameFile file, bool enoughMP, bool correctWeapon, float playerHPMid)
+    {
+        bool didSomething = file.hpRestore > 0 || file.mpRestore > 0 || file.damageToEnemy > 0 || file.GetActionType() == ActionType.Equip;
+        if(file != null && enoughMP && correctWeapon)
+        {
+            if(didSomething)
+            {
+                if(file.GetActionType() == ActionType.Item || file.GetActionType() == ActionType.Equip)
+                {
+                    playerAnimator.SetTrigger("Item");
+                }
+                else
+                {
+                    playerAnimator.SetTrigger(myWeapon.ToString());
+                }
+            }
+            yield return new WaitForSeconds(0.2f);
+            if(file.GetClip() != null)
+            {
+                sfx.PlaySound(file.GetClip());
+            }
+            if(file.damageToEnemy > 0)
+            {
+                enemyAnimator.SetTrigger("Damage");
+            }
+            TurnTaken?.Invoke(playerHPMid);
+
+            yield return new WaitForSeconds(0.5f);
+            if(currentEnemyHP <= 0)
+            {
+                PlayerWin?.Invoke();
+                sfx.PlaySound(enemyDie);
+                yield break;
+            }
+        }
+        else
+        {
+            sfx.PlaySound(badChoiceClip);
+        }
+
+        enemyAnimator.SetTrigger("Attack");
+        yield return new WaitForSeconds(0.3f);
+        sfx.PlaySound(currentCombat.enemyName);
+        playerAnimator.SetTrigger("Damage");
+        TurnTaken?.Invoke(currentPlayerHP);
+        yield return new WaitForSeconds(0.5f);
         if(currentPlayerHP <= 0)
         {
             PlayerLose?.Invoke();
             sfx.PlaySound(playerDie);
         }
-        else if(currentEnemyHP <= 0)
+        else
         {
-            PlayerWin?.Invoke();
-            sfx.PlaySound(enemyDie);
+            console.ContinueAfterAttack();
         }
     }
     #endregion
@@ -216,9 +256,15 @@ public struct CombatStruct
 }
 
 //TODO
-//Attack animations
-//Idle animations
-//Put enemies in
-
 //Credits
+
+//Add in equip and new door sfx
+//Add in boss sprite
+
+//Text in victory screen for when you recover hp/mp and reduce bugs
+//Darken console log
+//Fade in bugs
+//Fade out enemies on death
+//Game UI sizing
+
 //Try green tint on console log

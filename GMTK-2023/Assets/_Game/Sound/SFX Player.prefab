@@ -142,7 +142,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 4264544629473120899}
-  baseVol: 0.8
   sounds:
   - name: continue
     sfx: {fileID: 8300000, guid: b5962fb9bc80c4f4dbcc95dac6ca930a, type: 3}
+  - name: skux
+    sfx: {fileID: 8300000, guid: adca6624be607fc459dbf7f2a4f4c2fe, type: 3}
+  - name: sandas
+    sfx: {fileID: 8300000, guid: 96e1c1cf51a30c043a8c8654c858472c, type: 3}

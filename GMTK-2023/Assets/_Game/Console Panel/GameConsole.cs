@@ -62,7 +62,7 @@ public class GameConsole : MonoBehaviour
         StopAllCoroutines();
 
         //Bug check
-        if(file.GetActionType() != currentAction.playerAction)
+        if(file != null && file.GetActionType() != currentAction.playerAction)
         {
             currentBugs++;
             NewBug?.Invoke(currentBugs);
@@ -84,6 +84,10 @@ public class GameConsole : MonoBehaviour
         {
             actionIndex = 0;
         }
+    }
+
+    public void ContinueAfterAttack()
+    {
         if(!stop)
         {
             SetUpContinueButton(SetUpAction);
