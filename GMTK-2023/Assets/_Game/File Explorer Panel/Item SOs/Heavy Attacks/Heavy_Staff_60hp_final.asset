@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Heavy_Staff_60hp_final
   m_EditorClassIdentifier: 
   myType: 1
+  weapon: 2
   damageToEnemy: 60
   hpRestore: 0
   mpRestore: -50
+  outputText: Player does heavy staff attack. Consumes 50 magic. Enemy damaged 60hp.

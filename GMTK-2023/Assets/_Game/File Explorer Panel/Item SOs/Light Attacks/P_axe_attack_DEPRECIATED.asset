@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: P_axe_attack_DEPRECIATED
   m_EditorClassIdentifier: 
   myType: 0
+  weapon: 0
   damageToEnemy: 0
   hpRestore: 0
   mpRestore: 0
+  outputText: 'Player does not attack. Axe does not have light attack. '

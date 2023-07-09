@@ -31,27 +31,7 @@ public class GameFile : MonoBehaviour
 
     public string UseText()
     {
-        string output = $"Selected file {GetFileName()}.";
-        bool didSomething = false;
-        if(damageToEnemy > 0)
-        {
-            didSomething = true;
-            output += $" Dealt {damageToEnemy} damage to your foe.";
-        }
-        if(hpRestore > 0)
-        {
-            didSomething = true;
-            output += $" Restored {hpRestore} HP.";
-        }
-        if(mpRestore > 0)
-        {
-            didSomething = true;
-            output += $" Restored {mpRestore} MP.";
-        }
-        if(!didSomething)
-        {
-            output += "Feature not yet implemented. No affect.";
-        }
+        string output = $"{fileSO.outputText}";
         return output;
     }
 
@@ -69,5 +49,15 @@ public class GameFile : MonoBehaviour
     public ActionType GetActionType()
     {
         return fileSO.myType;
+    }
+
+    public Weapon GetWeapon()
+    {
+        return fileSO.weapon;
+    }
+
+    public bool IsEquip()
+    {
+        return fileSO.myType == ActionType.Equip;
     }
 }

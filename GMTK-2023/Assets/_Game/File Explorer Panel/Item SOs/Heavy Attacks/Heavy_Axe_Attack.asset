@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Heavy_Axe_Attack
   m_EditorClassIdentifier: 
   myType: 1
+  weapon: 3
   damageToEnemy: 50
   hpRestore: -20
   mpRestore: 0
+  outputText: Player Performs Axe Attack. Enemy damaged 50hp. Player damaged 20hp.

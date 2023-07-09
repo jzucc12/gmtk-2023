@@ -18,6 +18,7 @@ public class CombatManager : MonoBehaviour
     [HideInInspector] public int currentPlayerHP;
     [HideInInspector] public int currentPlayerMP;
     [HideInInspector] public int currentEnemyHP;
+    [HideInInspector] public Weapon myWeapon = Weapon.Sword;
     private int combatIndex = 0;
     public event Action TurnTaken;
     public event Action PlayerLose;
@@ -32,6 +33,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private float scrollSpeed = 1;
     [SerializeField] private float fadeTime = 1;
     public event Action ScrollFinished;
+    public event Action<GameFile, bool, bool> CombatText;
     private float offset;
 
 
@@ -63,15 +65,46 @@ public class CombatManager : MonoBehaviour
 
     private void DoAction(ActionStruct action, GameFile file)
     {
-        currentPlayerHP += file.hpRestore - action.enemyDamage;
+        if(file == null)
+        {
+            return;
+        }
+
         currentPlayerMP += file.mpRestore;
-        currentEnemyHP -= file.damageToEnemy;
+        bool enoughMP = false;
+        bool correctWeapon = true;
+
+        if(file.IsEquip())
+        {
+            myWeapon = file.GetWeapon();
+        }
+        else if(file.GetWeapon() != Weapon.None && myWeapon != file.GetWeapon())
+        {
+            correctWeapon = false;
+        }
+
+        if(currentPlayerMP >= 0)
+        {
+            enoughMP = true;
+        }
+
+        if(correctWeapon && enoughMP)
+        {
+            currentPlayerHP += file.hpRestore;
+            bool attackedForEnemy = file.hpRestore < 0 && file.damageToEnemy == 0;
+            if(!attackedForEnemy)
+            {
+                currentPlayerHP -= action.enemyDamage;
+            }
+            currentEnemyHP -= file.damageToEnemy;
+        }
 
         currentPlayerHP = Mathf.Clamp(currentPlayerHP, 0, maxPlayerHP);
         currentPlayerMP = Mathf.Clamp(currentPlayerMP, 0, maxPlayerMP);
         currentEnemyHP = Mathf.Clamp(currentEnemyHP, 0, maxEnemyHP);
 
         TurnTaken?.Invoke();
+        CombatText?.Invoke(file, enoughMP, correctWeapon);
         if(currentPlayerHP == 0)
         {
             PlayerLose?.Invoke();
@@ -159,9 +192,7 @@ public struct CombatStruct
 }
 
 //TODO
-//Lower max bugs to gain hp option
-//Can't use attacks if not enough MP/wrong weapon equipped
-//Weapon equipped UI
+//Tutorial
 //Attack animations
 //Idle animations
 //Put enemies in
@@ -171,6 +202,7 @@ public struct CombatStruct
 //Try map as sprite instead of image
 //Try green tint on console log
 //Add border to top box
+//Timer UI
 
 //Main menu
 //Pause with audio settings

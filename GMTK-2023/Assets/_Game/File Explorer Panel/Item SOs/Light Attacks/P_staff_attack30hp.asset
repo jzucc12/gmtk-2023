@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: P_staff_attack30hp
   m_EditorClassIdentifier: 
   myType: 0
+  weapon: 2
   damageToEnemy: 30
   hpRestore: 0
   mpRestore: -30
+  outputText: Player does light staff attack. Consumes 30 magic. Enemy damaged 30hp.

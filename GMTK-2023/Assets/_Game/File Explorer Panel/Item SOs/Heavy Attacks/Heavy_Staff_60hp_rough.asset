@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Heavy_Staff_60hp_rough
   m_EditorClassIdentifier: 
   myType: 1
+  weapon: 0
   damageToEnemy: 0
   hpRestore: 0
   mpRestore: 0
+  outputText: Invalid File. Player does not attack in confusion.

@@ -7,6 +7,7 @@ public class CombatUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI hpPlayerDisplay;
     [SerializeField] private TextMeshProUGUI mpPlayerDisplay;
     [SerializeField] private TextMeshProUGUI hpEnemyDisplay;
+    [SerializeField] private TextMeshProUGUI weaponDisplay;
 
 
     private void Start()
@@ -26,6 +27,7 @@ public class CombatUI : MonoBehaviour
 
     private void UpdateUI()
     {
+        weaponDisplay.text = $"Weapon:\n{combat.myWeapon}";
         hpPlayerDisplay.text = $"HP: {combat.currentPlayerHP}/{combat.maxPlayerHP}";
         mpPlayerDisplay.text = $"MP: {combat.currentPlayerMP}/{combat.maxPlayerMP}";
         hpEnemyDisplay.text = $"{combat.enemyName}: {combat.currentEnemyHP}/{combat.maxEnemyHP}";

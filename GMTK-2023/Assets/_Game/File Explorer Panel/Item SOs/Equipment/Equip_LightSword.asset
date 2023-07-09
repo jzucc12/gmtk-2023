@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Equip_LightSword
   m_EditorClassIdentifier: 
   myType: 2
+  weapon: 1
   damageToEnemy: 0
   hpRestore: 0
   mpRestore: 0
+  outputText: Sword Equipped

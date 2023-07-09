@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: P_buster_gun
   m_EditorClassIdentifier: 
   myType: 0
+  weapon: 0
   damageToEnemy: 0
   hpRestore: 0
   mpRestore: 0
+  outputText: 'Unknown game object. Player does not attack in confusion. '

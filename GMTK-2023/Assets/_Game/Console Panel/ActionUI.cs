@@ -4,6 +4,7 @@ using UnityEngine;
 public class ActionUI : MonoBehaviour
 {
     [SerializeField] private GameConsole console;
+    [SerializeField] private CombatManager combat;
     [SerializeField] TextMeshProUGUI enemyText;
     [SerializeField] TextMeshProUGUI playerText;
     [SerializeField] TextMeshProUGUI selectedText;
@@ -13,12 +14,14 @@ public class ActionUI : MonoBehaviour
     {
         console.NewAction += SetUpAction;
         console.ActionSelected += FileSubmitted;
+        combat.CombatText += SubmittedText;
     }
 
     private void OnDisable()
     {
         console.NewAction -= SetUpAction;
         console.ActionSelected -= FileSubmitted;
+        combat.CombatText -= SubmittedText;
     }
 
     private void SetUpAction(ActionStruct currentAction)
@@ -30,15 +33,27 @@ public class ActionUI : MonoBehaviour
 
     private void FileSubmitted(ActionStruct action, GameFile file)
     {
-        string selectionText = "";
         if(file == null)
         {
-            selectionText = "No action selected. Turn Skipped.";
+            selectedText.text = "No action selected. Turn Skipped.";
+        }
+    }
+
+    public void SubmittedText(GameFile file, bool enoughMP, bool correctWeapon)
+    {
+        string output = "";
+        if(!correctWeapon)
+        {
+            output = "You don't have the right weapon equipped. No effect";
+        }
+        else if(!enoughMP)
+        {
+            output = "You didn't have enough MP. No effect";
         }
         else
         {
-            selectionText = file.UseText();
+            output = file.UseText();
         }
-        selectedText.text = selectionText;
+        selectedText.text = output;
     }
 }

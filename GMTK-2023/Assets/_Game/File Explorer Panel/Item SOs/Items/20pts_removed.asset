@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: 20pts_removed
   m_EditorClassIdentifier: 
   myType: 3
+  weapon: 0
   damageToEnemy: 0
   hpRestore: 0
   mpRestore: 0
+  outputText: 'Invalid Item. Nothing appears to happen. '

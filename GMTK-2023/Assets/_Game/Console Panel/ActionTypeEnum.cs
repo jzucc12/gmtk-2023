@@ -5,3 +5,11 @@ public enum ActionType
     Equip,
     Item
 }
+
+public enum Weapon
+{
+    None,
+    Sword,
+    Staff,
+    Axe
+}

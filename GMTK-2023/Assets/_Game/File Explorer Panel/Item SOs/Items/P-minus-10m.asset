@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: P-minus-10m
   m_EditorClassIdentifier: 
   myType: 3
+  weapon: 0
   damageToEnemy: 0
   hpRestore: 0
   mpRestore: -10
+  outputText: Player magic decreases by 10 magic.

@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Heavy_Sword_playerDamage
   m_EditorClassIdentifier: 
   myType: 1
+  weapon: 0
   damageToEnemy: 0
   hpRestore: -40
   mpRestore: 0
+  outputText: 'Player does not attack. Enemy does heavy sword attack. Player damaged
+    40hp. '

@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: P_sword_attack20hp1
   m_EditorClassIdentifier: 
   myType: 0
+  weapon: 1
   damageToEnemy: 0
   hpRestore: -20
   mpRestore: 0
+  outputText: 'Player does not attack. Enemy does light sword attack. Player damaged
+    20hp. '

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: 30pts_minus_minus
   m_EditorClassIdentifier: 
   myType: 3
-  damageToEnemy: 20
+  weapon: 0
+  damageToEnemy: -30
   hpRestore: 0
   mpRestore: 0
+  outputText: Enemy health increases by 30hp.

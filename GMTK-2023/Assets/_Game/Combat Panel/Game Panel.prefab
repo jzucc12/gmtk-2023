@@ -957,6 +957,7 @@ MonoBehaviour:
   currentPlayerHP: 0
   currentPlayerMP: 0
   currentEnemyHP: 0
+  myWeapon: 1
   playerAnimator: {fileID: 7078841700681240216}
   dungeonDoor: {fileID: 1827646087624722928}
   teleportDestination: {fileID: 7978214079587122735}
@@ -1196,6 +1197,7 @@ MonoBehaviour:
   hpPlayerDisplay: {fileID: 8284895779333751226}
   mpPlayerDisplay: {fileID: 8284895777674627854}
   hpEnemyDisplay: {fileID: 8284895779368751827}
+  weaponDisplay: {fileID: 8182957916054706103}
 --- !u!1 &8284895779333751224
 GameObject:
   m_ObjectHideFlags: 0
