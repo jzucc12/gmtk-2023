@@ -1243,11 +1243,11 @@ MonoBehaviour:
     enemyLocation: {fileID: 850526322181578284}
     turnTime: 20
     enemyName: Skux
-  - enemyHP: 100
+  - enemyHP: 110
     enemyLocation: {fileID: 9002709021580754608}
     turnTime: 15
     enemyName: Sandas
-  - enemyHP: 150
+  - enemyHP: 140
     enemyLocation: {fileID: 1033725458323239320}
     turnTime: 20
     enemyName: Mofus

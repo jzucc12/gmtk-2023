@@ -16,6 +16,6 @@ MonoBehaviour:
   weapon: 2
   damageToEnemy: 60
   hpRestore: 0
-  mpRestore: -50
-  outputText: Player does heavy staff attack. Consumes 50 magic. Enemy damaged 60hp.
+  mpRestore: -30
+  outputText: Player does heavy staff attack. Consumes 30 magic. Enemy damaged 60hp.
   sfx: {fileID: 8300000, guid: 28486405bb8d53d4abdf8f72b4afbf46, type: 3}
