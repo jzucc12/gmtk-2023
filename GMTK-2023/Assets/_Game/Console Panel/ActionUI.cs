@@ -42,7 +42,7 @@ public class ActionUI : MonoBehaviour
     {
         if(file == null)
         {
-            selectedText.text = "No action selected. Gained a bug.";
+            selectedText.text = "No action selected. Turn wasted.";
         }
     }
 

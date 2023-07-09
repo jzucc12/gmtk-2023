@@ -202,9 +202,6 @@ public struct CombatStruct
 //Put enemies in
 //Music and sfx
 
-//Timer UI
-//Update background
-
 //Main menu
 //Pause with audio settings
 //Credits

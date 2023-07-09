@@ -54,7 +54,7 @@ public class GameConsole : MonoBehaviour
         StopAllCoroutines();
 
         //Bug check
-        if(file == null || file.GetActionType() != currentAction.playerAction)
+        if(file.GetActionType() != currentAction.playerAction)
         {
             currentBugs++;
             NewBug?.Invoke(currentBugs);
