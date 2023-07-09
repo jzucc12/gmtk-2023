@@ -17,4 +17,5 @@ MonoBehaviour:
   damageToEnemy: 30
   hpRestore: 0
   mpRestore: 0
-  outputText: Player does heavy sword attack. Enemy damaged 30hp.
+  outputText: Player uses heavy sword attack. Enemy damaged 30hp.
+  sfx: {fileID: 8300000, guid: cadc5b4a24dfb0b4ea8807ba746181ac, type: 3}

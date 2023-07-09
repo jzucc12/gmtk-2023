@@ -18,3 +18,4 @@ MonoBehaviour:
   hpRestore: -20
   mpRestore: 0
   outputText: Player Performs Axe Attack. Enemy damaged 50hp. Player damaged 20hp.
+  sfx: {fileID: 8300000, guid: 4809cf1c132393841b848cd5e05dc6eb, type: 3}

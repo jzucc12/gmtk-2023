@@ -8,6 +8,8 @@ public class GameConsole : MonoBehaviour
 {
     [SerializeField] private Button continueButton;
     [SerializeField] private int maxBugs;
+    [SerializeField] private AudioClip continueClip;
+    [SerializeField] private AudioClip crashClip;
     public float turnTime;
     [SerializeField] private List<ActionQueue> actions = new List<ActionQueue>();
     private int currentBugs = 0;
@@ -22,7 +24,13 @@ public class GameConsole : MonoBehaviour
     public event Action<float> TimerTicked;
     public event Action GameCrash;
     public bool stop = false;
+    private SFXPlayer sfx;
 
+
+    private void Awake()
+    {
+        sfx = FindAnyObjectByType<SFXPlayer>();
+    }
 
     private void OnEnable()
     {
@@ -62,6 +70,7 @@ public class GameConsole : MonoBehaviour
 
         if(currentBugs >= maxBugs)
         {
+            sfx.PlaySound(crashClip);
             GameCrash?.Invoke();
             return;
         }
@@ -86,6 +95,7 @@ public class GameConsole : MonoBehaviour
         continueButton.interactable = true;
         continueButton.onClick.RemoveAllListeners();
         continueButton.onClick.AddListener(() => continueButton.interactable = false);
+        continueButton.onClick.AddListener(() => sfx.PlaySound(continueClip));
         continueButton.onClick.AddListener(action);
     }
 

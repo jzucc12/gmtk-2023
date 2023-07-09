@@ -19,3 +19,4 @@ MonoBehaviour:
   mpRestore: 0
   outputText: 'Player does not attack. Enemy does heavy sword attack. Player damaged
     40hp. '
+  sfx: {fileID: 8300000, guid: 5666d8e281f0bf545b2c784ce99c1078, type: 3}

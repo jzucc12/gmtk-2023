@@ -35,11 +35,19 @@ public class CombatManager : MonoBehaviour
     public event Action ScrollFinished;
     public event Action<ActionStruct, GameFile, Weapon, bool, bool, bool> CombatText;
     private float offset;
+    private SFXPlayer sfx;
+
+    [Header("Combat Audio")]
+    [SerializeField] private AudioClip playerDie;
+    [SerializeField] private AudioClip enemyDie;
+    [SerializeField] private AudioClip badChoiceClip;
+    [SerializeField] private AudioClip doorClip;
 
 
     #region //Monobehaviour
     private void Awake()
     {
+        sfx = FindAnyObjectByType<SFXPlayer>();
         SetUp();
     }
 
@@ -102,6 +110,15 @@ public class CombatManager : MonoBehaviour
             currentPlayerMP = Mathf.Clamp(currentPlayerMP, 0, maxPlayerMP);
             currentEnemyHP = Mathf.Clamp(currentEnemyHP, 0, maxEnemyHP);
             CombatText?.Invoke(action, file, myWeapon, enoughMP, correctWeapon, wrongActionType);
+
+            if(!enoughMP || !correctWeapon)
+            {
+                sfx.PlaySound(badChoiceClip);
+            }
+            else if(file.GetClip() != null)
+            {
+                sfx.PlaySound(file.GetClip());
+            }
         }
         else
         {
@@ -113,10 +130,12 @@ public class CombatManager : MonoBehaviour
         if(currentPlayerHP <= 0)
         {
             PlayerLose?.Invoke();
+            sfx.PlaySound(playerDie);
         }
         else if(currentEnemyHP <= 0)
         {
             PlayerWin?.Invoke();
+            sfx.PlaySound(enemyDie);
         }
     }
     #endregion
@@ -148,7 +167,7 @@ public class CombatManager : MonoBehaviour
         yield return ScrollToPoint(dungeonDoor.localPosition.x, background.parent.GetComponent<RectTransform>().rect.width-xShift);
         playerAnimator.SetBool("walking", false);
 
-        //Play door sfx
+        sfx.PlaySound(doorClip);
         blockOutScreen.DOFade(1, fadeTime);
         yield return new WaitForSeconds(fadeTime);
 
@@ -200,9 +219,6 @@ public struct CombatStruct
 //Attack animations
 //Idle animations
 //Put enemies in
-//Music and sfx
 
-//Main menu
-//Pause with audio settings
 //Credits
 //Try green tint on console log

@@ -965,6 +965,10 @@ MonoBehaviour:
   background: {fileID: 118889093084715424}
   scrollSpeed: 500
   fadeTime: 1
+  playerDie: {fileID: 8300000, guid: 68678f05aad75b4499a9852ba368a8a9, type: 3}
+  enemyDie: {fileID: 8300000, guid: c12213728f564a749b1e98c1090b2df1, type: 3}
+  badChoiceClip: {fileID: 8300000, guid: 5666d8e281f0bf545b2c784ce99c1078, type: 3}
+  doorClip: {fileID: 8300000, guid: 23770369112562f4da974ecab24e217b, type: 3}
 --- !u!1 &8284895777674627852
 GameObject:
   m_ObjectHideFlags: 0

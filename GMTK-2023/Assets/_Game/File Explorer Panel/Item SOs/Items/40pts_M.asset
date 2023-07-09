@@ -18,3 +18,4 @@ MonoBehaviour:
   hpRestore: 0
   mpRestore: 40
   outputText: 'Player magic increases by 40 magic. '
+  sfx: {fileID: 8300000, guid: 3122e92c3b1850648b47e6367cd57a84, type: 3}

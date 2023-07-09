@@ -18,3 +18,4 @@ MonoBehaviour:
   hpRestore: 0
   mpRestore: 0
   outputText: 'Player does light sword attack. Enemy damaged 20hp. '
+  sfx: {fileID: 8300000, guid: cadc5b4a24dfb0b4ea8807ba746181ac, type: 3}

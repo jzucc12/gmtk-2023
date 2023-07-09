@@ -10,4 +10,5 @@ public class FileSO : ScriptableObject
     public int hpRestore;
     public int mpRestore;
     public string outputText;
+    public AudioClip sfx;
 }

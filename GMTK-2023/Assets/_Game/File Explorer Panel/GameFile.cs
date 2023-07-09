@@ -60,4 +60,9 @@ public class GameFile : MonoBehaviour
     {
         return fileSO.myType == ActionType.Equip;
     }
+
+    public AudioClip GetClip()
+    {
+        return fileSO.sfx;
+    }
 }

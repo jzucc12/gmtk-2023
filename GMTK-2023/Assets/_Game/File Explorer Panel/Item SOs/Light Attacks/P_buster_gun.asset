@@ -18,3 +18,4 @@ MonoBehaviour:
   hpRestore: 0
   mpRestore: 0
   outputText: 'Unknown game object. Player does not attack in confusion. '
+  sfx: {fileID: 8300000, guid: 5666d8e281f0bf545b2c784ce99c1078, type: 3}
