@@ -1540,9 +1540,17 @@ PrefabInstance:
       propertyPath: m_text
       value: Chad Moves
       objectReference: {fileID: 0}
+    - target: {fileID: 7474944087872093699, guid: 9b1cdd0a686b214438e71ca43a6a7309, type: 3}
+      propertyPath: m_fontSize
+      value: 38
+      objectReference: {fileID: 0}
     - target: {fileID: 7490581735027227532, guid: 9b1cdd0a686b214438e71ca43a6a7309, type: 3}
       propertyPath: m_text
       value: Equipment
+      objectReference: {fileID: 0}
+    - target: {fileID: 7490581735027227532, guid: 9b1cdd0a686b214438e71ca43a6a7309, type: 3}
+      propertyPath: m_fontSize
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 7834665731655267732, guid: 9b1cdd0a686b214438e71ca43a6a7309, type: 3}
       propertyPath: m_text

@@ -10,6 +10,13 @@ public class ActionUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI selectedText;
 
 
+    private void Start()
+    {
+        enemyText.text = "";
+        playerText.text = "";
+        selectedText.text = "";
+    }
+
     private void OnEnable()
     {
         console.NewAction += SetUpAction;
@@ -35,11 +42,11 @@ public class ActionUI : MonoBehaviour
     {
         if(file == null)
         {
-            selectedText.text = "No action selected. Turn Skipped.";
+            selectedText.text = "No action selected. Gained a bug.";
         }
     }
 
-    public void SubmittedText(GameFile file, bool enoughMP, bool correctWeapon)
+    public void SubmittedText(GameFile file, bool enoughMP, bool correctWeapon, bool wrongActionType)
     {
         string output = "";
         if(!correctWeapon)
@@ -53,6 +60,10 @@ public class ActionUI : MonoBehaviour
         else
         {
             output = file.UseText();
+        }
+        if(wrongActionType)
+        {
+            output += "\n Wrong file type chosen. Bug added";
         }
         selectedText.text = output;
     }

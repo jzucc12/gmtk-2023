@@ -33,7 +33,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private float scrollSpeed = 1;
     [SerializeField] private float fadeTime = 1;
     public event Action ScrollFinished;
-    public event Action<GameFile, bool, bool> CombatText;
+    public event Action<GameFile, bool, bool, bool> CombatText;
     private float offset;
 
 
@@ -73,6 +73,7 @@ public class CombatManager : MonoBehaviour
         currentPlayerMP += file.mpRestore;
         bool enoughMP = false;
         bool correctWeapon = true;
+        bool wrongActionType = action.playerAction != file.GetActionType();
 
         if(file.IsEquip())
         {
@@ -104,7 +105,7 @@ public class CombatManager : MonoBehaviour
         currentEnemyHP = Mathf.Clamp(currentEnemyHP, 0, maxEnemyHP);
 
         TurnTaken?.Invoke();
-        CombatText?.Invoke(file, enoughMP, correctWeapon);
+        CombatText?.Invoke(file, enoughMP, correctWeapon, wrongActionType);
         if(currentPlayerHP == 0)
         {
             PlayerLose?.Invoke();
@@ -164,7 +165,7 @@ public class CombatManager : MonoBehaviour
         float target = destination - background.parent.GetComponent<RectTransform>().rect.width + buffer;
         while(moved != target)
         {
-            moved = Mathf.MoveTowards(moved, target, scrollSpeed);
+            moved = Mathf.MoveTowards(moved, target, scrollSpeed * Time.deltaTime);
             background.anchoredPosition = new Vector2(-moved, background.anchoredPosition.y);
             yield return null;
         }
@@ -197,12 +198,12 @@ public struct CombatStruct
 //Idle animations
 //Put enemies in
 //Music and sfx
-//Update font
 
 //Try map as sprite instead of image
 //Try green tint on console log
 //Add border to top box
 //Timer UI
+//Update background
 
 //Main menu
 //Pause with audio settings

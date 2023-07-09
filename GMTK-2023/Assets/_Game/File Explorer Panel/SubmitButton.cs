@@ -8,7 +8,7 @@ public class SubmitButton : MonoBehaviour
     [SerializeField] private TextMeshProUGUI selectionText;
     [SerializeField] private Button myButton;
     private string noSelection = "Nothing Selected";
-    private string selectedPrefix = "Use:";
+    private string selectedPrefix = "Send:\n";
     private GameFile selectedFile = null;
     public static event Action<GameFile> Submitted;
     private GameFolder activeFolder;
