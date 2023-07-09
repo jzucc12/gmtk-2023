@@ -252,6 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   console: {fileID: 8454404615921470195}
+  combat: {fileID: 0}
   enemyText: {fileID: 8454404614975039116}
   playerText: {fileID: 1552062299868070956}
   selectedText: {fileID: 1552062298721988660}
@@ -649,19 +650,52 @@ MonoBehaviour:
   turnTime: 10
   actions:
   - actions:
-    - enemyAttackName: Thunder
-      enemyDamage: 10
-      playerAction: 0
-    - enemyAttackName: Slash
+    - enemyAttackName: Slap
       enemyDamage: 20
-      playerAction: 1
-  - actions:
+      playerAction: 0
+    - enemyAttackName: Bite
+      enemyDamage: 40
+      playerAction: 3
     - enemyAttackName: Kick
-      enemyDamage: 10
+      enemyDamage: 30
+      playerAction: 1
+    - enemyAttackName: Bone Throw
+      enemyDamage: 20
+      playerAction: 3
+    - enemyAttackName: Fireball
+      enemyDamage: 50
       playerAction: 2
   - actions:
-    - enemyAttackName: Kick
-      enemyDamage: 10
+    - enemyAttackName: Claw
+      enemyDamage: 30
+      playerAction: 0
+    - enemyAttackName: Bite
+      enemyDamage: 50
+      playerAction: 2
+    - enemyAttackName: Dig
+      enemyDamage: 20
+      playerAction: 3
+    - enemyAttackName: Dig
+      enemyDamage: 30
+      playerAction: 1
+    - enemyAttackName: Sandstorm
+      enemyDamage: 50
+      playerAction: 3
+  - actions:
+    - enemyAttackName: A
+      enemyDamage: 30
+      playerAction: 0
+    - enemyAttackName: B
+      enemyDamage: 50
+      playerAction: 0
+    - enemyAttackName: C
+      enemyDamage: 30
+      playerAction: 2
+    - enemyAttackName: D
+      enemyDamage: 15
+      playerAction: 3
+    - enemyAttackName: E
+      enemyDamage: 75
       playerAction: 2
   stop: 0
 --- !u!1 &8454404616000316089

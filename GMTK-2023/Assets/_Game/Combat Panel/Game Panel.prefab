@@ -942,15 +942,15 @@ MonoBehaviour:
   maxPlayerHP: 200
   maxPlayerMP: 100
   combats:
-  - enemyHP: 10
+  - enemyHP: 200
     enemyLocation: {fileID: 850526322181578284}
     turnTime: 15
     enemyName: Skux
-  - enemyHP: 10
+  - enemyHP: 250
     enemyLocation: {fileID: 9002709021580754608}
     turnTime: 10
     enemyName: Sandas
-  - enemyHP: 10
+  - enemyHP: 300
     enemyLocation: {fileID: 1033725458323239320}
     turnTime: 7
     enemyName: TBD
