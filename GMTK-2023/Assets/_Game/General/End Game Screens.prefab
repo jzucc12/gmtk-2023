@@ -469,7 +469,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 113673658831767392, guid: d069a774962c81e43ab026f4239330d1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1970283669806839595, guid: d069a774962c81e43ab026f4239330d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -503,11 +503,18 @@ PrefabInstance:
       propertyPath: m_text
       value: 'You won the fight!
 
-        On to the next one!'
+        HP and MP will be restored!
+
+        Bugs
+        will be removed!'
       objectReference: {fileID: 0}
     - target: {fileID: 2391396246667794032, guid: d069a774962c81e43ab026f4239330d1, type: 3}
       propertyPath: m_fontStyle
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391396246667794032, guid: d069a774962c81e43ab026f4239330d1, type: 3}
+      propertyPath: m_lineSpacing
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 2506732923796845988, guid: d069a774962c81e43ab026f4239330d1, type: 3}
       propertyPath: m_Pivot.x
@@ -580,6 +587,10 @@ PrefabInstance:
     - target: {fileID: 4212452375818822953, guid: d069a774962c81e43ab026f4239330d1, type: 3}
       propertyPath: m_text
       value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 8476840688307281102, guid: d069a774962c81e43ab026f4239330d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 44
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d069a774962c81e43ab026f4239330d1, type: 3}

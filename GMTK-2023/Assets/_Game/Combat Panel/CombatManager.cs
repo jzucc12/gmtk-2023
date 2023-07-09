@@ -236,7 +236,7 @@ public class CombatManager : MonoBehaviour
 
     public void Victory()
     {
-        currentCombat.enemyLocation.gameObject.SetActive(false);
+        currentCombat.enemyLocation.DOScale(Vector3.zero, 0.75f);
     }
 
     public int CombatCount()
@@ -260,11 +260,5 @@ public struct CombatStruct
 
 //Add in equip and new door sfx
 //Add in boss sprite
-
-//Text in victory screen for when you recover hp/mp and reduce bugs
-//Darken console log
-//Fade in bugs
-//Fade out enemies on death
-//Game UI sizing
 
 //Try green tint on console log
