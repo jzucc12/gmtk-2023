@@ -18,3 +18,4 @@ MonoBehaviour:
   hpRestore: 0
   mpRestore: 0
   outputText: Staff Equipped
+  sfx: {fileID: 8300000, guid: 2ae27daffd9e6574a88bd3b70d09a510, type: 3}

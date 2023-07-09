@@ -195,7 +195,7 @@ public class CombatManager : MonoBehaviour
         {
             yield return EnterDungeon();
         }
-        float buffer = 100;
+        float buffer = combatIndex == 2 ? 200 : 100;
         yield return ScrollToPoint(currentCombat.enemyLocation.localPosition.x, buffer);
         ScrollFinished?.Invoke();
         playerAnimator.SetBool("walking", false);
@@ -204,7 +204,7 @@ public class CombatManager : MonoBehaviour
     private IEnumerator EnterDungeon()
     {
         float xShift = playerAnimator.transform.localPosition.x + 41; //Empirical
-        yield return ScrollToPoint(dungeonDoor.localPosition.x, background.parent.GetComponent<RectTransform>().rect.width-xShift);
+        yield return ScrollToPoint(dungeonDoor.localPosition.x, 0);
         playerAnimator.SetBool("walking", false);
 
         sfx.PlaySound(doorClip);
@@ -213,7 +213,7 @@ public class CombatManager : MonoBehaviour
 
         float moveTo = teleportDestination.localPosition.x;
         float yShift = 44; //Empirical
-        playerAnimator.transform.localPosition += new Vector3(0, -yShift, 0);
+        playerAnimator.transform.parent.localPosition += new Vector3(0, -yShift, 0);
         background.anchoredPosition = new Vector2(-moveTo, background.anchoredPosition.y);
 
         blockOutScreen.DOFade(0, fadeTime);
@@ -225,7 +225,15 @@ public class CombatManager : MonoBehaviour
     {
         float start = background.anchoredPosition.x;
         float moved = -start;
-        float target = destination - background.parent.GetComponent<RectTransform>().rect.width + buffer;
+        float target;
+        if(buffer == 0)
+        {
+            target = 4954; //Empirical for dungeon door because I hate everything.
+        }
+        else
+        {
+            target = destination - background.parent.GetComponent<RectTransform>().rect.width + buffer;
+        }
         while(moved != target)
         {
             moved = Mathf.MoveTowards(moved, target, scrollSpeed * Time.deltaTime);
@@ -257,8 +265,7 @@ public struct CombatStruct
 
 //TODO
 //Credits
-
-//Add in equip and new door sfx
-//Add in boss sprite
-
 //Try green tint on console log
+//Button as squares
+//Slide as squared
+//Menus boxes as windows box

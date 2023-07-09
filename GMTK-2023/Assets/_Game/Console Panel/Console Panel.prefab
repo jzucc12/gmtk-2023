@@ -608,19 +608,19 @@ MonoBehaviour:
       enemyDamage: 50
       playerAction: 3
   - actions:
-    - enemyAttackName: A
+    - enemyAttackName: Wing Swipe
       enemyDamage: 30
       playerAction: 0
-    - enemyAttackName: B
+    - enemyAttackName: Screech
       enemyDamage: 50
       playerAction: 3
-    - enemyAttackName: C
+    - enemyAttackName: Spear
       enemyDamage: 30
       playerAction: 2
-    - enemyAttackName: D
+    - enemyAttackName: Kick
       enemyDamage: 15
       playerAction: 3
-    - enemyAttackName: E
+    - enemyAttackName: Wind Gust
       enemyDamage: 75
       playerAction: 0
   stop: 0

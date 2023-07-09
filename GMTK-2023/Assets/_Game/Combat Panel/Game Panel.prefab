@@ -185,8 +185,9 @@ GameObject:
   - component: {fileID: 1033725458323239320}
   - component: {fileID: 4299576576836949554}
   - component: {fileID: 1754351757312862594}
+  - component: {fileID: 7700594867088787212}
   m_Layer: 5
-  m_Name: Boss
+  m_Name: Mofus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -209,8 +210,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 8789, y: -22}
-  m_SizeDelta: {x: 75, y: 75}
+  m_AnchoredPosition: {x: 8690, y: -22}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4299576576836949554
 CanvasRenderer:
@@ -240,7 +241,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 478738639, guid: 7b54c85db825e2c43808cbb4186507d7, type: 3}
+  m_Sprite: {fileID: 1200250621, guid: 565438cdac3f296408bd924a659ccc12, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -250,6 +251,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &7700594867088787212
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472573658527098247}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 8886faa20b404dd4985e4e7f964931c1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2993865975787294200
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,7 +742,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4249339511715400967}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -728,12 +750,12 @@ RectTransform:
   - {fileID: 4249196692958150696}
   - {fileID: 5699514330096695016}
   - {fileID: 1840256074198679189}
-  m_Father: {fileID: 4472741041136052407}
-  m_RootOrder: 1
+  m_Father: {fileID: 8190590373323289487}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 60, y: -28}
+  m_AnchoredPosition: {x: -0, y: -28}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &6285124839891577960
@@ -1150,7 +1172,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 118889093084715424}
-  - {fileID: 6100952165776370663}
+  - {fileID: 8190590373323289487}
   m_Father: {fileID: 8284895777669347205}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1228,7 +1250,7 @@ MonoBehaviour:
   - enemyHP: 150
     enemyLocation: {fileID: 1033725458323239320}
     turnTime: 20
-    enemyName: TBD
+    enemyName: Mofus
   currentPlayerHP: 0
   currentPlayerMP: 0
   currentEnemyHP: 0
@@ -1243,7 +1265,7 @@ MonoBehaviour:
   playerDie: {fileID: 8300000, guid: 68678f05aad75b4499a9852ba368a8a9, type: 3}
   enemyDie: {fileID: 8300000, guid: c12213728f564a749b1e98c1090b2df1, type: 3}
   badChoiceClip: {fileID: 8300000, guid: 5666d8e281f0bf545b2c784ce99c1078, type: 3}
-  doorClip: {fileID: 8300000, guid: 23770369112562f4da974ecab24e217b, type: 3}
+  doorClip: {fileID: 8300000, guid: 45ac2582f0104b642bd8f68cb078a4b6, type: 3}
 --- !u!1 &8284895777674627852
 GameObject:
   m_ObjectHideFlags: 0
@@ -1824,6 +1846,43 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &8699065624730373324
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8190590373323289487}
+  m_Layer: 5
+  m_Name: Player Parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8190590373323289487
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8699065624730373324}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6100952165776370663}
+  m_Father: {fileID: 4472741041136052407}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 60, y: 0}
+  m_SizeDelta: {x: 75, y: 75}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!1 &8785119256182177652
 GameObject:
   m_ObjectHideFlags: 0

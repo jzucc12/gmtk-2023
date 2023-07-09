@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MofusAnimator
+  m_Controller: {fileID: 9100000, guid: 2ce81769dd6daed40ae4d654f699576d, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: eaa5ee21dbff23c4eb131a4ce0af84ea, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7b354c9ab1fdbdf45b76ee7bd4e3595a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: aa1de607839dcf947b7bb8157f4a9bf7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e8016686b9c7ef54084f08ed7a15889f, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 497e4f6eaef96014ab607f8a88a9c1f5, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a7e9d040e68e71841b9352de9c5ba86e, type: 2}
