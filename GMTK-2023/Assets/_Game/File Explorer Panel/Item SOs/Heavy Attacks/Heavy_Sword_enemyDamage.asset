@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myType: 1
   weapon: 1
-  damageToEnemy: 40
+  damageToEnemy: 60
   hpRestore: 0
   mpRestore: 0
-  outputText: Player does heavy sword attack. Enemy damaged 40hp.
+  outputText: Player does heavy sword attack. Enemy damaged 60hp.

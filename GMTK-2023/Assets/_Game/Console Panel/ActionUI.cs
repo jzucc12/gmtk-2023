@@ -46,16 +46,16 @@ public class ActionUI : MonoBehaviour
         }
     }
 
-    public void SubmittedText(GameFile file, bool enoughMP, bool correctWeapon, bool wrongActionType)
+    public void SubmittedText(ActionStruct action, GameFile file, Weapon weapon, bool enoughMP, bool correctWeapon, bool wrongActionType)
     {
         string output = "";
         if(!correctWeapon)
         {
-            output = "You don't have the right weapon equipped. No effect";
+            output = $"Wrong weapon equipped (<color=#00ffffff>{weapon}</color> instead of <color=#00ffffff>{file.GetWeapon()}</color>). Turn lost.";
         }
         else if(!enoughMP)
         {
-            output = "You didn't have enough MP. No effect";
+            output = $"Not enough MP (Needed <color=#00ffffff>{-file.mpRestore}</color>). Turn lost.";
         }
         else
         {
@@ -63,7 +63,7 @@ public class ActionUI : MonoBehaviour
         }
         if(wrongActionType)
         {
-            output += "\nWrong file type chosen. Bug added";
+            output += $"\nWrong file type chosen (<color=#00ffffff>[{file.GetActionType()}]</color> instead of <color=#00ffffff>[{action.playerAction}]</color>). Bug added.";
         }
         selectedText.text = output;
     }

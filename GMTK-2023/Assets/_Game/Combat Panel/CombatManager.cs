@@ -33,7 +33,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private float scrollSpeed = 1;
     [SerializeField] private float fadeTime = 1;
     public event Action ScrollFinished;
-    public event Action<GameFile, bool, bool, bool> CombatText;
+    public event Action<ActionStruct, GameFile, Weapon, bool, bool, bool> CombatText;
     private float offset;
 
 
@@ -101,7 +101,7 @@ public class CombatManager : MonoBehaviour
             currentPlayerHP = Mathf.Clamp(currentPlayerHP, 0, maxPlayerHP);
             currentPlayerMP = Mathf.Clamp(currentPlayerMP, 0, maxPlayerMP);
             currentEnemyHP = Mathf.Clamp(currentEnemyHP, 0, maxEnemyHP);
-            CombatText?.Invoke(file, enoughMP, correctWeapon, wrongActionType);
+            CombatText?.Invoke(action, file, myWeapon, enoughMP, correctWeapon, wrongActionType);
         }
         else
         {
